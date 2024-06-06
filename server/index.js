@@ -16,7 +16,7 @@ run().catch(console.error);
 
 const cors = require("cors");
 
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
 // Put all API endpoints under '/api'
 app.get("/api/hello", (req, res) => {
