@@ -8,10 +8,10 @@ const newsRoute = require("./routes/news");
 const projectRoute = require("./routes/project");
 const adminRoutes = require("./routes/admin");
 const eventRoutes = require("./routes/event");
+const path = require("path");
 
 const { run } = require("./mongoConnectionFile.js");
 
-// Call the run function to establish the MongoDB connection
 run().catch(console.error);
 
 const cors = require("cors");
