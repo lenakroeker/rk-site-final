@@ -17,6 +17,13 @@ run().catch(console.error);
 const cors = require("cors");
 
 app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' 'unsafe-inline';"
+  );
+  next();
+});
 
 // Put all API endpoints under '/api'
 app.get("/api/hello", (req, res) => {
