@@ -17,11 +17,20 @@ run().catch(console.error);
 const cors = require("cors");
 
 app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+// Express middleware to set CSP header with nonce value
 app.use((req, res, next) => {
+  // Generate a unique nonce value for each request
+  const nonce = crypto.randomBytes(16).toString("base64");
+
+  // Set the CSP header with the generated nonce value
   res.setHeader(
     "Content-Security-Policy",
-    "script-src 'self' 'unsafe-inline';"
+    `script-src 'self' 'nonce-${nonce}'`
   );
+
+  // Pass the nonce value to the template or HTML meta tag if needed
+  res.locals.nonce = nonce;
+
   next();
 });
 
