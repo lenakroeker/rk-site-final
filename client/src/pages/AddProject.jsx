@@ -76,8 +76,10 @@ export default function NewProduct() {
     const token = localStorage.getItem("accessToken");
 
     const project = { ...inputs, images: imageUrls.filter(Boolean) };
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      const response = await fetch("http://localhost:5000/api/projects", {
+      const response = await fetch(`${API_URL}/projects`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

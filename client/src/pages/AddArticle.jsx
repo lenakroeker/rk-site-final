@@ -78,8 +78,10 @@ export default function NewProduct() {
 
     const project = { ...inputs, images: imageUrls.filter(Boolean) };
     console.log(project); // Log project object before sending it
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      const response = await fetch("http://localhost:5000/api/news", {
+      const response = await fetch(`${API_URL}/news`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
