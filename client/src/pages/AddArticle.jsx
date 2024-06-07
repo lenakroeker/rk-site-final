@@ -135,7 +135,7 @@ export default function NewProduct() {
         </InputFields>
         {Array.from({ length: 10 }).map((_, index) => (
           <AddArticleItemImage key={index}>
-            <AddArticleItemlabel>Image {index}</AddArticleItemlabel>
+            <AddArticleItemlabel>Image {index + 1}</AddArticleItemlabel>
             <AddArticleItemImageinput
               type="file"
               onChange={(e) => handleFileChange(e, index)}
