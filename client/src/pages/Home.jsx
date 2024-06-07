@@ -19,6 +19,7 @@ export default function Home() {
       try {
         const res = await publicRequest.get("news/recent"); // Call the endpoint to get recent news
         setNews(res.data); // Set the retrieved data to state
+        console.log("news" + news);
       } catch (error) {
         console.error("Error fetching recent news:", error);
       }

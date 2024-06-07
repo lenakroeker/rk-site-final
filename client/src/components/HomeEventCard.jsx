@@ -15,6 +15,7 @@ export default function HomeEventCard() {
       try {
         const res = await publicRequest.get("events");
         setEvents(res.data);
+        console.log("events" + res.data);
       } catch {}
     };
     getEvents();
