@@ -38,6 +38,7 @@ app.get("/api/hello", (req, res) => {
 app.use(express.json());
 app.use(bodyParser.json());
 
+// API routes
 app.use("/api/news", newsRoute);
 app.use("/api/projects", projectRoute);
 app.use("/api/admin", adminRoutes);
