@@ -23,37 +23,39 @@ export default function HomeEventCard() {
   return (
     <Wrapper>
       <Title>Upcoming Events</Title>
-      {events
-        .filter((event) => new Date(event.date) > new Date())
-        .map((event, index) => (
-          <Event key={index}>
-            <EventTitle>{event.title}</EventTitle>
-            <EventLocation>
-              <b>Location:</b> {event.location}
-            </EventLocation>
-            <EventDate>
-              <b>Date:</b> {formatDate(event.date)}
-            </EventDate>
-            <EventLink href={event.link} target="_blank">
-              More Info
-            </EventLink>
-          </Event>
-        ))}
+      {events &&
+        events
+          .filter((event) => new Date(event.date) > new Date())
+          .map((event, index) => (
+            <Event key={index}>
+              <EventTitle>{event.title}</EventTitle>
+              <EventLocation>
+                <b>Location:</b> {event.location}
+              </EventLocation>
+              <EventDate>
+                <b>Date:</b> {formatDate(event.date)}
+              </EventDate>
+              <EventLink href={event.link} target="_blank">
+                More Info
+              </EventLink>
+            </Event>
+          ))}
       <Title>Passed Events</Title>
-      {events
-        .filter((event) => new Date(event.date) < new Date())
-        .map((event, index) => (
-          <Event key={index}>
-            <EventTitle>{event.title}</EventTitle>
-            <EventLocation>
-              <b>Location: </b>
-              {event.location}
-            </EventLocation>
-            <EventDate>
-              <b>Date:</b> {formatDate(event.date)}
-            </EventDate>
-          </Event>
-        ))}
+      {events &&
+        events
+          .filter((event) => new Date(event.date) < new Date())
+          .map((event, index) => (
+            <Event key={index}>
+              <EventTitle>{event.title}</EventTitle>
+              <EventLocation>
+                <b>Location: </b>
+                {event.location}
+              </EventLocation>
+              <EventDate>
+                <b>Date:</b> {formatDate(event.date)}
+              </EventDate>
+            </Event>
+          ))}
     </Wrapper>
   );
 }

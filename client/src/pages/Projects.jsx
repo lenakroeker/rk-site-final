@@ -22,9 +22,10 @@ export default function Projects() {
     <Wrapper>
       <Title>Projects</Title>
       <ProjectGrid>
-        {projects.map((item, index) => (
-          <ProjectCard data={item} key={index} />
-        ))}
+        {projects &&
+          projects.map((item, index) => (
+            <ProjectCard data={item} key={index} />
+          ))}
       </ProjectGrid>
     </Wrapper>
   );

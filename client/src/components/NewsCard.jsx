@@ -8,9 +8,8 @@ export default function NewsCard({ data }) {
       <Date>{data.date}</Date>
       <Content>
         <ImgGrid>
-          {data.images.map((img, index) => (
-            <Img src={img} key={index} />
-          ))}
+          {data.images &&
+            data.images.map((img, index) => <Img src={img} key={index} />)}
         </ImgGrid>
         <Text>{data.text}</Text>
       </Content>

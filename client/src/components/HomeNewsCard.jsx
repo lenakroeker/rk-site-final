@@ -7,9 +7,8 @@ export default function HomeNewsCard({ data }) {
       <NewsTitle>{data.title}</NewsTitle>
       <NewsDate>{data.date}</NewsDate>
       <NewsImages>
-        {data.images.map((img, index) => (
-          <NewsImg src={img} key={index} />
-        ))}
+        {data.images &&
+          data.images.map((img, index) => <NewsImg src={img} key={index} />)}
       </NewsImages>
       <NewsText>{data.text}</NewsText>
     </NewsItem>

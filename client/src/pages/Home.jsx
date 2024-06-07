@@ -56,9 +56,10 @@ export default function Home() {
           <NavItem end to="/news">
             News
           </NavItem>
-          {news.map((article, index) => (
-            <HomeNewsCard data={article} key={index} />
-          ))}
+          {news &&
+            news.map((article, index) => (
+              <HomeNewsCard data={article} key={index} />
+            ))}
 
           <NavItem end to="/news">
             More News
