@@ -5,13 +5,14 @@ dotenv.config();
 
 const adminUsername = process.env.ADMIN_USERNAME;
 const hashedAdminPassword = process.env.ADMIN_PASSWORD;
+const decodedPassword = decodeURIComponent(hashedAdminPassword);
 
 const login = async (req, res) => {
   const { username, password } = req.body;
 
   try {
     const isUsernameMatch = username === adminUsername;
-    const isPasswordMatch = await bcrypt.compare(password, hashedAdminPassword);
+    const isPasswordMatch = await bcrypt.compare(password, decodedPassword);
 
     // Check if the provided username and password match the admin credentials
     if (isUsernameMatch && isPasswordMatch) {
