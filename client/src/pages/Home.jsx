@@ -45,11 +45,12 @@ export default function Home() {
   return (
     <Wrapper>
       <Slider {...settings}>
-        {fadeImages.map((img, index) => (
-          <Slide key={index}>
-            <Img src={img} />
-          </Slide>
-        ))}
+        {fadeImages &&
+          fadeImages.map((img, index) => (
+            <Slide key={index}>
+              <Img src={img} />
+            </Slide>
+          ))}
       </Slider>
       <Info>
         <News>

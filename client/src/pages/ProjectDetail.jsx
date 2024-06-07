@@ -31,11 +31,12 @@ export default function ProjectDetail() {
           <Location>{project.location}</Location>
           <Text>{project.text}</Text>
           <ImgWrapper>
-            {project.images.map((image, index) => {
-              if (index > 0) {
-                return <Img src={image} key={index} />;
-              }
-            })}
+            {project.images &&
+              project.images.map((image, index) => {
+                if (index > 0) {
+                  return <Img src={image} key={index} />;
+                }
+              })}
           </ImgWrapper>
         </>
       )}
