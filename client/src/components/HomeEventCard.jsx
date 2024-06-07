@@ -13,7 +13,7 @@ export default function HomeEventCard() {
     console.log("getting events");
     const getEvents = async () => {
       try {
-        const res = await publicRequest.get("events");
+        const res = await publicRequest.get("/events");
         setEvents(res.data);
         console.log("events" + res.data);
       } catch {}
