@@ -38,7 +38,7 @@ export default function EditProject() {
   }, [id]);
 
   //update inputs on change
-  const handleChange = () => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs((prev) => {
       const newInputs = { ...prev, [name]: value };
