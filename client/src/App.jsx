@@ -41,7 +41,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/home/addproject"
+          path="/admin/addproject"
           element={
             <PrivateRoute>
               <AddProject />
