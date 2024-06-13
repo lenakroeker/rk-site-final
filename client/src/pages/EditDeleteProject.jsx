@@ -40,6 +40,8 @@ export default function EditDeleteProject() {
 
   return (
     <Wrapper>
+      <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+
       <ProjectGrid>
         {projects &&
           projects.map((item, index) => (

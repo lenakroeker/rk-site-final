@@ -120,6 +120,8 @@ export default function EditProject() {
   };
   return (
     <>
+      <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+
       {project && (
         <NewProductC>
           <Link to="/admin/home">&#8678; Back to Admin Home</Link>
