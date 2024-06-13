@@ -38,4 +38,36 @@ router.post("/", authenticateToken, async (req, res) => {
   }
 });
 
+// EDIT project by id
+router.put("/:id", authenticateToken, async (req, res) => {
+  try {
+    const updatedProject = await Project.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (updatedProject) {
+      res.status(200).json(updatedProject);
+    } else {
+      res.status(404).json({ message: "Project not found" });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// DELETE project by id
+router.delete("/:id", authenticateToken, async (req, res) => {
+  try {
+    const deletedProject = await Project.findByIdAndDelete(req.params.id);
+    if (deletedProject) {
+      res.status(200).json({ message: "Project deleted successfully" });
+    } else {
+      res.status(404).json({ message: "Project not found" });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

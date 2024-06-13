@@ -62,27 +62,37 @@ export default function HomeEventCard() {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   padding: 60px 5vw;
+
+  @media only screen and (min-width: 500px) {
+    width: 100%;
+    padding: 60px 5vw;
+  }
 `;
 
 const Title = styled.div`
   width: 100%;
   font-size: 20px;
-  margin: 20px 0;
+  text-align: center;
   font-weight: bold;
   text-decoration: underline;
+  @media only screen and (min-width: 500px) {
+    margin: 20px 0;
+    text-align: left;
+  }
 `;
 
 const Event = styled.div`
   width: 100%;
   height: auto;
-  padding-left: 20px;
+  padding: 3px 3px 5px 20px;
   margin: 50px 0;
   border-left: 1px solid black;
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  background-color: #00000010;
 `;
 
 const EventTitle = styled.div`

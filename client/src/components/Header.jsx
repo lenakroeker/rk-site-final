@@ -14,7 +14,7 @@ export default function Header() {
       <NavItem end to="/">
         <Logo>Richard Kroeker</Logo>
       </NavItem>
-      {(open || window.innerWidth > 500) && (
+      {(open || window.innerWidth > 600) && (
         <Nav onClick={handleClick}>
           <NavItem end to="/news">
             news
@@ -83,7 +83,7 @@ const Nav = styled.nav`
   width: 30vw;
   background: black;
 
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 600px) {
     position: relative;
     top: 0;
     width: auto;
@@ -105,7 +105,7 @@ const Hamburger = styled.div`
   top: 15px;
   right: 15px;
   z-index: 10;
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 600px) {
     display: none;
   }
 `;

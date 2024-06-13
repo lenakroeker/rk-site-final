@@ -33,9 +33,10 @@ export default function Projects() {
 
 const Wrapper = styled.div`
   min-height: 80vh;
-  padding: 100px 12vw;
+  padding: 100px 2vw;
   width: 100vw;
   @media only screen and (min-width: 500px) {
+    padding: 100px 12vw;
   }
 `;
 
@@ -47,9 +48,10 @@ const ProjectGrid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
   @media only screen and (min-width: 500px) {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
   }
   @media only screen and (min-width: 800px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;

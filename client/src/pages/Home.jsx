@@ -81,11 +81,20 @@ const Wrapper = styled.div`
 const Slide = styled.div`
   height: 80vh;
   width: 100%;
+  overflow: hidden;
+  @media only screen and (min-width: 500px) {
+    height: 80vh;
+    width: 100%;
+  }
 `;
 
 const Img = styled.img`
-  object-fit: cover;
-  width: 100%;
+  height: 100%;
+  @media only screen and (min-width: 500px) {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Info = styled.div`
@@ -105,6 +114,7 @@ const News = styled.div`
   color: white;
   width: 100%;
   padding: 20px 4vw;
+  margin-top: -5px;
   @media only screen and (min-width: 500px) {
     width: 60vw;
     padding: 40px;

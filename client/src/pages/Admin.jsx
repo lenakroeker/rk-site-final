@@ -10,15 +10,26 @@ export default function Admin() {
   return (
     <Wrapper>
       <H1>Welcome Admin!</H1>
-      <Link to="/admin/home/addProject">
+      <Link to="/admin/addProject">
         <Button>Add Project</Button>
       </Link>
-      <Link to="/admin/home/addarticle">
+      <Link to="/admin/addarticle">
         <Button>Add News Article</Button>
       </Link>
-      <Link to="/admin/home/addevent">
+      <Link to="/admin/addevent">
         <Button>Add Event</Button>
       </Link>
+      <Div>
+        <Link to="/admin/edit-delete-project">
+          <Button>Edit / Delete Project</Button>
+        </Link>
+        <Link to="/admin/addarticle">
+          <Button>Edit / Delete News Article</Button>
+        </Link>
+        <Link to="/admin/addevent">
+          <Button>Edit / Delete Event</Button>
+        </Link>
+      </Div>
       <Button onClick={logout}>Logout</Button>
     </Wrapper>
   );
@@ -43,4 +54,8 @@ const Button = styled.button`
   &:active {
     background-color: #8efbbf;
   }
+`;
+
+const Div = styled.div`
+  display: flex;
 `;

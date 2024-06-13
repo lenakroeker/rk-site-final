@@ -12,6 +12,8 @@ import AddProject from "./pages/AddProject.jsx";
 import AddArticle from "./pages/AddArticle.jsx";
 import AddEvent from "./pages/AddEvent.jsx";
 import AdminPage from "./pages/Admin.jsx";
+import EditDeleteProject from "./pages/EditDeleteProject.jsx";
+import EditProject from "./pages/EditProject.jsx";
 import Login from "./pages/Login.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -59,6 +61,22 @@ function App() {
           element={
             <PrivateRoute>
               <AddEvent />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-delete-project"
+          element={
+            <PrivateRoute>
+              <EditDeleteProject />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-project/:id"
+          element={
+            <PrivateRoute>
+              <EditProject />
             </PrivateRoute>
           }
         />

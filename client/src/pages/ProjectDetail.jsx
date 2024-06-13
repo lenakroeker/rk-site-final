@@ -5,7 +5,8 @@ import { publicRequest } from "../../requestMethod.js";
 
 export default function ProjectDetail() {
   const location = useLocation();
-  const [project, setProject] = useState(null); // Initialize with null
+  const [project, setProject] = useState(null);
+  const [modalImage, setModalImage] = useState(null);
   const id = location.pathname.split("/")[2];
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function ProjectDetail() {
       try {
         const res = await publicRequest.get(`/projects/find/${id}`);
         setProject(res.data);
-        console.log(res.data); // Log the response data
+        console.log(res.data);
       } catch (error) {
         console.error("Error fetching the project:", error);
       }
@@ -22,6 +23,20 @@ export default function ProjectDetail() {
 
     getProjectById();
   }, [id]);
+
+  const openModal = (image) => {
+    setModalImage(image);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
+  const handleModalClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
 
   return (
     <Wrapper>
@@ -34,11 +49,25 @@ export default function ProjectDetail() {
             {project.images &&
               project.images.map((image, index) => {
                 if (index > 0) {
-                  return <Img src={image} key={index} />;
+                  return (
+                    <Img
+                      src={image}
+                      key={index}
+                      onClick={() => openModal(image)}
+                    />
+                  );
                 }
               })}
           </ImgWrapper>
         </>
+      )}
+      {modalImage && (
+        <Modal onClick={handleModalClick}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={closeModal}>close</CloseButton>
+            <ModalImage src={modalImage} />
+          </ModalContent>
+        </Modal>
       )}
     </Wrapper>
   );
@@ -50,7 +79,7 @@ const Wrapper = styled.div`
   width: 100vw;
   text-align: center;
   @media only screen and (min-width: 500px) {
-    width: 97vw;
+    padding: 100px 0;
   }
 `;
 
@@ -65,27 +94,66 @@ const ImgWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  height: auto;
   margin: 50px auto;
-  max-width: 1000px;
   grid-gap: 20px;
   @media only screen and (min-width: 500px) {
-    min-width: 340px;
+    margin: 50px 20px;
   }
 `;
 
 const Img = styled.img`
-  width: 100%;
-  height: auto;
-  background-color: #cfdee4;
+  max-width: 100vw;
+
   @media only screen and (min-width: 500px) {
-    width: auto;
     height: 300px;
-    min-width: 340px;
+    width: auto;
+    object-fit: contain;
+    background-color: #cfdee4;
+    cursor: pointer;
   }
 `;
+
 const Text = styled.p`
   max-width: 800px;
   margin: auto;
+`;
+
+const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  width: 85vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+`;
+
+const ModalImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 `;
