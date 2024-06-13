@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { publicRequest } from "../../requestMethod.js";
-import { Link } from "react-router-dom";
 
 import {
   getStorage,
@@ -23,12 +22,13 @@ export default function EditProject() {
   const [project, setProject] = useState(null);
   const id = location.pathname.split("/")[3];
 
-  // get project data
+  // Get project data
   useEffect(() => {
     const getProjectById = async () => {
       try {
         const res = await publicRequest.get(`/projects/find/${id}`);
         setProject(res.data);
+        setInputs(res.data); // Initialize inputs with project data
       } catch (error) {
         console.error("Error fetching the project:", error);
       }
@@ -37,16 +37,16 @@ export default function EditProject() {
     getProjectById();
   }, [id]);
 
-  //update inputs on change
+  // Update inputs on change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs((prev) => {
-      const newInputs = { ...prev, [name]: value };
-      return newInputs;
-    });
+    setInputs((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  // upload images to fiebase and get urls
+  // Upload images to Firebase and get URLs
   const handleFileChange = (e, index) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -101,30 +101,29 @@ export default function EditProject() {
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {
-      const response = await fetch(`${API_URL}/projects/${project._id}`, {
-        method: "Delete",
+      const response = await fetch(`${API_URL}/projects/${id}`, {
+        method: "PUT", // Corrected HTTP method
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${token}`, // Ensure the token is included in the Authorization header
         },
         body: JSON.stringify(project),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      const data = await response.json();
       setSuccess(true);
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
   return (
     <>
       <Link to="/admin/home">&#8678; Back to Admin Home</Link>
 
       {project && (
         <NewProductC>
-          <Link to="/admin/home">&#8678; Back to Admin Home</Link>
           <AddProductTitle>Edit {project.title}</AddProductTitle>
           <AddProductForm>
             <InputFields>
@@ -185,7 +184,7 @@ export default function EditProject() {
             </AddProjectButton>
             {success && (
               <p>
-                <strong>Success!</strong> Your project has been Edited.
+                <strong>Success!</strong> Your project has been edited.
               </p>
             )}
           </AddProductForm>
