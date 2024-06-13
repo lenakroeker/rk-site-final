@@ -40,7 +40,7 @@ export default function EditDeleteProject() {
 
   return (
     <Wrapper>
-      <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+      <NavLink to="/admin/home">&#8678; Back to Admin Home</NavLink>
 
       <ProjectGrid>
         {projects &&
