@@ -51,4 +51,36 @@ router.post("/", authenticateToken, async (req, res) => {
   }
 });
 
+// EDIT article by id
+router.put("/:id", authenticateToken, async (req, res) => {
+  try {
+    const updatedArticle = await News.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (updatedProject) {
+      res.status(200).json(updatedArticle);
+    } else {
+      res.status(404).json({ message: "Article not found" });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// DELETE article by id
+router.delete("/:id", authenticateToken, async (req, res) => {
+  try {
+    const deletedArticle = await Project.findByIdAndDelete(req.params.id);
+    if (deletedArticle) {
+      res.status(200).json({ message: "Article deleted successfully" });
+    } else {
+      res.status(404).json({ message: "Article not found" });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

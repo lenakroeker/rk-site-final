@@ -23,10 +23,10 @@ export default function Admin() {
         <Link to="/admin/edit-delete-project">
           <Button>Edit / Delete Project</Button>
         </Link>
-        <Link to="/admin/addarticle">
+        <Link to="/admin/edit-delete-article">
           <Button>Edit / Delete News Article</Button>
         </Link>
-        <Link to="/admin/addevent">
+        <Link to="/admin/edit-delete-event">
           <Button>Edit / Delete Event</Button>
         </Link>
       </Div>

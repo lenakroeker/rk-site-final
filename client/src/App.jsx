@@ -13,7 +13,11 @@ import AddArticle from "./pages/AddArticle.jsx";
 import AddEvent from "./pages/AddEvent.jsx";
 import AdminPage from "./pages/Admin.jsx";
 import EditDeleteProject from "./pages/EditDeleteProject.jsx";
+import EditDeleteEvent from "./pages/EditDeleteEvent.jsx";
+import EditDeleteArticle from "./pages/EditDeleteArticle.jsx";
 import EditProject from "./pages/EditProject.jsx";
+import EditEvent from "./pages/EditEvent.jsx";
+import EditArticle from "./pages/EditArticle.jsx";
 import Login from "./pages/Login.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -49,7 +53,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/home/addarticle"
+          path="/admin/addarticle"
           element={
             <PrivateRoute>
               <AddArticle />
@@ -57,13 +61,14 @@ function App() {
           }
         />
         <Route
-          path="/admin/home/addevent"
+          path="/admin/addevent"
           element={
             <PrivateRoute>
               <AddEvent />
             </PrivateRoute>
           }
         />
+
         <Route
           path="/admin/edit-delete-project"
           element={
@@ -77,6 +82,38 @@ function App() {
           element={
             <PrivateRoute>
               <EditProject />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-delete-event"
+          element={
+            <PrivateRoute>
+              <EditDeleteEvent />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-event/:id"
+          element={
+            <PrivateRoute>
+              <EditEvent />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-delete-article"
+          element={
+            <PrivateRoute>
+              <EditDeleteArticle />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-article/:id"
+          element={
+            <PrivateRoute>
+              <EditArticle />
             </PrivateRoute>
           }
         />
