@@ -89,7 +89,7 @@ export default function EditEvent() {
                   onChange={handleChange}
                 />
               </AddProjectItem>
-              <AddProjectItemTextArea>
+              <AddProjectItem>
                 <AddProjectItemlabel>Date</AddProjectItemlabel>
                 <AddProjectIteminput
                   name="date"
@@ -97,16 +97,16 @@ export default function EditEvent() {
                   defaultValue={event.date}
                   onChange={handleChange}
                 />
-              </AddProjectItemTextArea>
-              <AddProjectItemTextArea>
+              </AddProjectItem>
+              <AddProjectItem>
                 <AddProjectItemlabel>More info URL</AddProjectItemlabel>
                 <AddProjectIteminput
                   name="link"
                   type="url"
-                  defaultValue={event.url}
+                  defaultValue={event.link}
                   onChange={handleChange}
                 />
-              </AddProjectItemTextArea>
+              </AddProjectItem>
             </InputFields>
 
             <AddProjectButton onClick={handleClick}>
@@ -156,10 +156,6 @@ const AddProjectItem = styled.div`
   margin: 10px;
 `;
 
-const AddProjectItemTextArea = styled.div`
-  width: 90%;
-`;
-
 const AddProjectItemlabel = styled.label`
   color: #000000;
   font-weight: 600;
@@ -196,5 +192,7 @@ const AddProjectButton = styled.button`
 
 const Back = styled(Link)`
   display: block;
-  margin: 20px auto;
+  text-align: center;
+  margin: 20px 30%;
+  width: 100%;
 `;

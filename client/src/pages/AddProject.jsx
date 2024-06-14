@@ -278,15 +278,21 @@ const Thumbnail = styled.img`
 
 const Back = styled(Link)`
   display: block;
-  margin: 20px auto;
+  text-align: center;
+  margin: 20px 30%;
+  width: 100%;
 `;
 
 const New = styled.div`
   padding: 10px 30px;
-  background-color: #8afd8a;
+  background-color: #00ffc3;
   display: block;
   margin: 20px auto;
+  cursor: pointer;
+  transition: 0.5s ease;
+  font-weight: bold;
   &:hover {
-    background-color: #26fa26;
+    background-color: #88ff00;
+    border-radius: 10px;
   }
 `;

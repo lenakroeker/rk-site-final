@@ -304,5 +304,7 @@ const Thumbnail = styled.img`
 
 const Back = styled(Link)`
   display: block;
-  margin: 20px auto;
+  text-align: center;
+  margin: 20px 30%;
+  width: 100%;
 `;
