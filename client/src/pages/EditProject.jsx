@@ -13,9 +13,9 @@ import app from "../firebase";
 
 export default function EditProject() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null)); // Array to hold image URLs
-  const [files, setFiles] = useState(new Array(10).fill(null)); // Array to hold files
-  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0)); // Array to hold upload progress
+  const [imageUrls, setImageUrls] = useState(new Array(15).fill(null)); // Array to hold image URLs
+  const [files, setFiles] = useState(new Array(15).fill(null)); // Array to hold files
+  const [uploadProgress, setUploadProgress] = useState(new Array(15).fill(0)); // Array to hold upload progress
   const [success, setSuccess] = useState(false);
 
   const location = useLocation();
@@ -158,7 +158,7 @@ export default function EditProject() {
                 />
               </AddProjectItemTextArea>
             </InputFields>
-            {Array.from({ length: 10 }).map((_, index) => (
+            {Array.from({ length: 15 }).map((_, index) => (
               <AddProjectItemImage key={index}>
                 {index === 0 ? (
                   <AddProjectItemlabel>Thumbnail</AddProjectItemlabel>
