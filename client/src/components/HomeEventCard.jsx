@@ -10,12 +10,10 @@ export default function HomeEventCard() {
   };
 
   useEffect(() => {
-    console.log("getting events");
     const getEvents = async () => {
       try {
         const res = await publicRequest.get("/events");
         setEvents(res.data);
-        console.log("events" + res.data);
       } catch {}
     };
     getEvents();

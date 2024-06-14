@@ -4,16 +4,13 @@ import { publicRequest } from "../../requestMethod.js";
 import { NavLink } from "react-router-dom";
 
 export default function EditDeleteEvent() {
-  const [events, setEvents] = useState([]); // Correct variable name
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     const getEvents = async () => {
-      // Corrected function name
       try {
-        const res = await publicRequest.get("/events"); // Added leading slash for proper endpoint
-        setEvents(res.data); // Correct variable name
-
-        console.log(res.data);
+        const res = await publicRequest.get("/events");
+        setEvents(res.data);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -33,7 +30,7 @@ export default function EditDeleteEvent() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setEvents(events.filter((event) => event._id !== id)); // Correct variable name and ID reference
+      setEvents(events.filter((event) => event._id !== id));
     } catch (error) {
       console.error("Error deleting the event:", error);
     }

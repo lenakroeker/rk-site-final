@@ -26,7 +26,7 @@ export default function NewProduct() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(event),
       });
@@ -46,50 +46,50 @@ export default function NewProduct() {
   };
 
   return (
-    <NewProductC>
+    <Wrapper>
       <Link to="/admin/home">&#8678; Back to Admin Home</Link>
-      <AddProductTitle>New Event</AddProductTitle>
-      <AddProductForm>
+      <Title>New Event</Title>
+      <Form>
         <InputFields>
-          <AddProjectItem>
-            <AddProjectItemlabel>Title</AddProjectItemlabel>
-            <AddProjectIteminput
+          <Item>
+            <Itemlabel>Title</Itemlabel>
+            <Iteminput
               name="title"
               type="text"
               placeholder="title"
               onChange={handleChange}
             />
-          </AddProjectItem>
-          <AddProjectItem>
-            <AddProjectItemlabel>Location</AddProjectItemlabel>
-            <AddProjectIteminput
+          </Item>
+          <Item>
+            <Itemlabel>Location</Itemlabel>
+            <Iteminput
               name="location"
               type="text"
               placeholder="location"
               onChange={handleChange}
             />
-          </AddProjectItem>
-          <AddProjectItem>
-            <AddProjectItemlabel>Event Date</AddProjectItemlabel>
-            <AddProjectIteminput
+          </Item>
+          <Item>
+            <Itemlabel>Event Date</Itemlabel>
+            <Iteminput
               name="date"
               type="date"
               placeholder="url"
               onChange={handleChange}
             />
-          </AddProjectItem>
-          <AddProjectItem>
-            <AddProjectItemlabel>More info link</AddProjectItemlabel>
-            <AddProjectIteminput
+          </Item>
+          <Item>
+            <Itemlabel>More info link</Itemlabel>
+            <Iteminput
               name="link"
               type="text"
               placeholder="url"
               onChange={handleChange}
             />
-          </AddProjectItem>
+          </Item>
         </InputFields>
 
-        <AddProjectButton onClick={handleClick}>Create</AddProjectButton>
+        <Button onClick={handleClick}>Create</Button>
         {success && (
           <>
             <p>
@@ -99,22 +99,22 @@ export default function NewProduct() {
             <New onClick={handleRefresh}>Create another event</New>
           </>
         )}
-      </AddProductForm>
-    </NewProductC>
+      </Form>
+    </Wrapper>
   );
 }
 
-const NewProductC = styled.div`
+const Wrapper = styled.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
 `;
 
-const AddProductTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
 `;
 
-const AddProductForm = styled.form`
+const Form = styled.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -128,22 +128,18 @@ const InputFields = styled.div`
   width: 100%;
 `;
 
-const AddProjectItem = styled.div`
+const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
 
-const AddProjectItemTextArea = styled.div`
-  width: 90%;
-`;
-
-const AddProjectItemlabel = styled.label`
+const Itemlabel = styled.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 `;
 
-const AddProjectIteminput = styled.input`
+const Iteminput = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -153,7 +149,7 @@ const AddProjectIteminput = styled.input`
   }
 `;
 
-const AddProjectButton = styled.button`
+const Button = styled.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;

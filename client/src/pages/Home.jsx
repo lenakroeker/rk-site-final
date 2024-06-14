@@ -17,14 +17,13 @@ export default function Home() {
   useEffect(() => {
     const getRecentNews = async () => {
       try {
-        const res = await publicRequest.get("news/recent"); // Call the endpoint to get recent news
-        setNews(res.data); // Set the retrieved data to state
-        console.log("news" + news);
+        const res = await publicRequest.get("news/recent");
+        setNews(res.data);
       } catch (error) {
         console.error("Error fetching recent news:", error);
       }
     };
-    getRecentNews(); // Call the function to fetch recent news when the component mounts
+    getRecentNews();
   }, []);
 
   const fadeImages = [Kinnistin, Pictou, Bell];

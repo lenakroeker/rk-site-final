@@ -12,15 +12,14 @@ import app from "../firebase";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null)); // Array to hold image URLs
-  const [files, setFiles] = useState(new Array(4).fill(null)); // Array to hold files
-  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0)); // Array to hold upload progress
+  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null));
+  const [files, setFiles] = useState(new Array(4).fill(null));
+  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0));
   const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs((prev) => {
       const newInputs = { ...prev, [name]: value };
-      console.log(newInputs); // Log project object every time it is edited
       return newInputs;
     });
   };
@@ -58,7 +57,6 @@ export default function NewProduct() {
             setImageUrls((prevImageUrls) => {
               const newImageUrls = [...prevImageUrls];
               newImageUrls[index] = downloadURL;
-              console.log({ ...inputs, images: newImageUrls }); // Log project object every time it is edited
               return newImageUrls;
             });
           })
@@ -77,7 +75,6 @@ export default function NewProduct() {
     const token = localStorage.getItem("accessToken");
 
     const project = { ...inputs, images: imageUrls.filter(Boolean) };
-    console.log(project); // Log project object before sending it
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {
@@ -85,7 +82,7 @@ export default function NewProduct() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(project),
       });
@@ -105,43 +102,43 @@ export default function NewProduct() {
   };
 
   return (
-    <NewProductC>
+    <Wrapper>
       <Link to="/admin/home">&#8678; Back to Admin Home</Link>
-      <AddArticleTitle>New Article</AddArticleTitle>
-      <AddArticleForm>
+      <Title>New Article</Title>
+      <Form>
         <InputFields>
-          <AddArticleItem>
-            <AddArticleItemlabel>Title</AddArticleItemlabel>
-            <AddArticleIteminput
+          <Item>
+            <Itemlabel>Title</Itemlabel>
+            <Iteminput
               name="title"
               type="text"
               placeholder="title"
               onChange={handleChange}
             />
-          </AddArticleItem>
-          <AddArticleItem>
-            <AddArticleItemlabel>Date</AddArticleItemlabel>
-            <AddArticleIteminput
+          </Item>
+          <Item>
+            <Itemlabel>Date</Itemlabel>
+            <Iteminput
               name="date"
               type="text"
               placeholder="date"
               onChange={handleChange}
             />
-          </AddArticleItem>
-          <AddArticleItemTextArea>
-            <AddArticleItemlabel>Text</AddArticleItemlabel>
+          </Item>
+          <ItemTextArea>
+            <Itemlabel>Text</Itemlabel>
             <TextField
               name="text"
               type="textfield"
               placeholder="text"
               onChange={handleChange}
             />
-          </AddArticleItemTextArea>
+          </ItemTextArea>
         </InputFields>
         {Array.from({ length: 10 }).map((_, index) => (
-          <AddArticleItemImage key={index}>
-            <AddArticleItemlabel>Image {index + 1}</AddArticleItemlabel>
-            <AddArticleItemImageinput
+          <ItemImage key={index}>
+            <Itemlabel>Image {index + 1}</Itemlabel>
+            <ItemImageinput
               type="file"
               onChange={(e) => handleFileChange(e, index)}
             />
@@ -156,9 +153,9 @@ export default function NewProduct() {
                 alt={`Thumbnail ${index + 1}`}
               />
             )}
-          </AddArticleItemImage>
+          </ItemImage>
         ))}
-        <AddArticleButton onClick={handleClick}>Create</AddArticleButton>
+        <Button onClick={handleClick}>Create</Button>
         {success && (
           <>
             <p>
@@ -168,22 +165,22 @@ export default function NewProduct() {
             <New onClick={handleRefresh}>Create another article</New>
           </>
         )}
-      </AddArticleForm>
-    </NewProductC>
+      </Form>
+    </Wrapper>
   );
 }
 
-const NewProductC = styled.div`
+const Wrapper = styled.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
 `;
 
-const AddArticleTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
 `;
 
-const AddArticleForm = styled.form`
+const Form = styled.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -197,16 +194,16 @@ const InputFields = styled.div`
   width: 100%;
 `;
 
-const AddArticleItem = styled.div`
+const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
 
-const AddArticleItemTextArea = styled.div`
+const ItemTextArea = styled.div`
   width: 90%;
 `;
 
-const AddArticleItemImage = styled.div`
+const ItemImage = styled.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -216,13 +213,13 @@ const AddArticleItemImage = styled.div`
   border: 1px solid black;
 `;
 
-const AddArticleItemlabel = styled.label`
+const Itemlabel = styled.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 `;
 
-const AddArticleIteminput = styled.input`
+const Iteminput = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -232,7 +229,7 @@ const AddArticleIteminput = styled.input`
   }
 `;
 
-const AddArticleItemImageinput = styled.input`
+const ItemImageinput = styled.input`
   padding: 10px;
   border-radius: 10px;
 `;
@@ -249,7 +246,7 @@ const TextField = styled.textarea`
   }
 `;
 
-const AddArticleButton = styled.button`
+const Button = styled.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;

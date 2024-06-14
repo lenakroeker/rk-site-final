@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Admin() {
   const logout = () => {
     localStorage.removeItem("accessToken");
-    window.location.href = "/admin"; // Redirect to login page
+    window.location.href = "/admin";
   };
 
   return (

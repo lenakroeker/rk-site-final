@@ -13,9 +13,9 @@ import app from "../firebase";
 
 export default function EditArticle() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null)); // Array to hold image URLs
-  const [files, setFiles] = useState(new Array(10).fill(null)); // Array to hold files
-  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0)); // Array to hold upload progress
+  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null));
+  const [files, setFiles] = useState(new Array(10).fill(null));
+  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0));
   const [success, setSuccess] = useState(false);
 
   const location = useLocation();
@@ -28,9 +28,9 @@ export default function EditArticle() {
       try {
         const res = await publicRequest.get(`/news/find/${id}`);
         setArticle(res.data);
-        setInputs(res.data); // Initialize inputs with article data
+        setInputs(res.data);
         if (res.data.images) {
-          setImageUrls(res.data.images); // Initialize imageUrls with existing images
+          setImageUrls(res.data.images);
         }
       } catch (error) {
         console.error("Error fetching the article:", error);
@@ -124,48 +124,48 @@ export default function EditArticle() {
   return (
     <>
       {article && (
-        <NewArticleC>
+        <Wrapper>
           <Link to="/admin/home">&#8678; Back to Admin Home</Link>
 
-          <AddArticleTitle>Edit {article.title}</AddArticleTitle>
-          <AddArticleForm>
+          <Title>Edit {article.title}</Title>
+          <Form>
             <InputFields>
-              <AddArticleItem>
-                <AddArticleItemlabel>Title</AddArticleItemlabel>
-                <AddArticleIteminput
+              <Item>
+                <Itemlabel>Title</Itemlabel>
+                <Iteminput
                   name="title"
                   type="text"
                   defaultValue={article.title}
                   onChange={handleChange}
                 />
-              </AddArticleItem>
-              <AddArticleItem>
-                <AddArticleItemlabel>Date</AddArticleItemlabel>
-                <AddArticleIteminput
+              </Item>
+              <Item>
+                <Itemlabel>Date</Itemlabel>
+                <Iteminput
                   name="date"
                   type="text"
                   defaultValue={article.date}
                   onChange={handleChange}
                 />
-              </AddArticleItem>
-              <AddArticleItemTextArea>
-                <AddArticleItemlabel>Text</AddArticleItemlabel>
+              </Item>
+              <ItemTextArea>
+                <Itemlabel>Text</Itemlabel>
                 <TextField
                   name="text"
                   type="textfield"
                   defaultValue={article.text}
                   onChange={handleChange}
                 />
-              </AddArticleItemTextArea>
+              </ItemTextArea>
             </InputFields>
             {Array.from({ length: 10 }).map((_, index) => (
-              <AddArticleItemImage key={index}>
+              <ItemImage key={index}>
                 {index === 0 ? (
-                  <AddArticleItemlabel>Thumbnail</AddArticleItemlabel>
+                  <Itemlabel>Thumbnail</Itemlabel>
                 ) : (
-                  <AddArticleItemlabel>Image {index}</AddArticleItemlabel>
+                  <Itemlabel>Image {index}</Itemlabel>
                 )}
-                <AddArticleItemImageinput
+                <ItemImageinput
                   type="file"
                   onChange={(e) => handleFileChange(e, index)}
                 />
@@ -180,11 +180,9 @@ export default function EditArticle() {
                     alt={`Thumbnail ${index + 1}`}
                   />
                 )}
-              </AddArticleItemImage>
+              </ItemImage>
             ))}
-            <AddArticleButton onClick={handleClick}>
-              Apply Edits
-            </AddArticleButton>
+            <Button onClick={handleClick}>Apply Edits</Button>
             {success && (
               <>
                 <p>
@@ -193,24 +191,24 @@ export default function EditArticle() {
                 <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>
             )}
-          </AddArticleForm>
-        </NewArticleC>
+          </Form>
+        </Wrapper>
       )}
     </>
   );
 }
 
-const NewArticleC = styled.div`
+const Wrapper = styled.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
 `;
 
-const AddArticleTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
 `;
 
-const AddArticleForm = styled.form`
+const Form = styled.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -224,16 +222,16 @@ const InputFields = styled.div`
   width: 100%;
 `;
 
-const AddArticleItem = styled.div`
+const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
 
-const AddArticleItemTextArea = styled.div`
+const ItemTextArea = styled.div`
   width: 90%;
 `;
 
-const AddArticleItemImage = styled.div`
+const ItemImage = styled.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -243,13 +241,13 @@ const AddArticleItemImage = styled.div`
   border: 1px solid black;
 `;
 
-const AddArticleItemlabel = styled.label`
+const Itemlabel = styled.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 `;
 
-const AddArticleIteminput = styled.input`
+const Iteminput = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -259,7 +257,7 @@ const AddArticleIteminput = styled.input`
   }
 `;
 
-const AddArticleItemImageinput = styled.input`
+const ItemImageinput = styled.input`
   padding: 10px;
   border-radius: 10px;
 `;
@@ -277,7 +275,7 @@ const TextField = styled.textarea`
   }
 `;
 
-const AddArticleButton = styled.button`
+const Button = styled.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;

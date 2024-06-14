@@ -7,13 +7,10 @@ export default function EditDeletearticle() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    console.log("start");
     const getArticles = async () => {
       try {
         const res = await publicRequest.get("news");
         setArticles(res.data.reverse());
-
-        console.log(res.data);
       } catch (error) {
         console.error("Error fetching articles:", error);
       }

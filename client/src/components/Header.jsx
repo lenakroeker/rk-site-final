@@ -7,7 +7,6 @@ export default function Header() {
 
   const handleClick = () => {
     setopen(!open);
-    console.log(open);
   };
   return (
     <Head>

@@ -11,11 +11,9 @@ export default function ProjectDetail() {
 
   useEffect(() => {
     const getProjectById = async () => {
-      console.log(id);
       try {
         const res = await publicRequest.get(`/projects/find/${id}`);
         setProject(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error("Error fetching the project:", error);
       }

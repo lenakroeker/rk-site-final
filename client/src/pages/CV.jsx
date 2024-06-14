@@ -16,7 +16,6 @@ export default function CV() {
 
   const toggleShow = (cat) => {
     setShown(cat);
-    console.log(shown);
   };
   return (
     <Wrapper>

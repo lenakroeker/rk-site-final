@@ -11,8 +11,6 @@ export default function EditDeleteProject() {
       try {
         const res = await publicRequest.get("projects");
         setProjects(res.data.reverse());
-
-        console.log(res.data);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }

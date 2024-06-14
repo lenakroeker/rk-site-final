@@ -10,7 +10,6 @@ export default function EditEvent() {
   const location = useLocation();
   const [event, setEvent] = useState(null);
   const id = location.pathname.split("/")[3];
-  console.log(id);
 
   // Get project data
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function EditEvent() {
         const res = await publicRequest.get(`/events/find/${id}`);
         setEvent(res.data);
         setInputs(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error("Error fetching the event:", error);
       }
@@ -65,53 +63,51 @@ export default function EditEvent() {
   return (
     <>
       {event && (
-        <NewProductC>
+        <Wrapper>
           <Link to="/admin/home">&#8678; Back to Admin Home</Link>
 
-          <AddProductTitle>Edit {event.title}</AddProductTitle>
-          <AddProductForm>
+          <Title>Edit {event.title}</Title>
+          <Form>
             <InputFields>
-              <AddProjectItem>
-                <AddProjectItemlabel>Title</AddProjectItemlabel>
-                <AddProjectIteminput
+              <Item>
+                <Itemlabel>Title</Itemlabel>
+                <Iteminput
                   name="title"
                   type="text"
                   defaultValue={event.title}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
-              <AddProjectItem>
-                <AddProjectItemlabel>Location</AddProjectItemlabel>
-                <AddProjectIteminput
+              </Item>
+              <Item>
+                <Itemlabel>Location</Itemlabel>
+                <Iteminput
                   name="location"
                   type="text"
                   defaultValue={event.location}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
-              <AddProjectItem>
-                <AddProjectItemlabel>Date</AddProjectItemlabel>
-                <AddProjectIteminput
+              </Item>
+              <Item>
+                <Itemlabel>Date</Itemlabel>
+                <Iteminput
                   name="date"
                   type="date"
                   defaultValue={event.date}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
-              <AddProjectItem>
-                <AddProjectItemlabel>More info URL</AddProjectItemlabel>
-                <AddProjectIteminput
+              </Item>
+              <Item>
+                <Itemlabel>More info URL</Itemlabel>
+                <Iteminput
                   name="link"
                   type="url"
                   defaultValue={event.link}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
+              </Item>
             </InputFields>
 
-            <AddProjectButton onClick={handleClick}>
-              Apply Edits
-            </AddProjectButton>
+            <Button onClick={handleClick}>Apply Edits</Button>
             {success && (
               <>
                 <p>
@@ -120,24 +116,24 @@ export default function EditEvent() {
                 <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>
             )}
-          </AddProductForm>
-        </NewProductC>
+          </Form>
+        </Wrapper>
       )}
     </>
   );
 }
 
-const NewProductC = styled.div`
+const Wrapper = styled.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
 `;
 
-const AddProductTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
 `;
 
-const AddProductForm = styled.form`
+const Form = styled.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -151,18 +147,18 @@ const InputFields = styled.div`
   width: 100%;
 `;
 
-const AddProjectItem = styled.div`
+const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
 
-const AddProjectItemlabel = styled.label`
+const Itemlabel = styled.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 `;
 
-const AddProjectIteminput = styled.input`
+const Iteminput = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -172,7 +168,7 @@ const AddProjectIteminput = styled.input`
   }
 `;
 
-const AddProjectButton = styled.button`
+const Button = styled.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;

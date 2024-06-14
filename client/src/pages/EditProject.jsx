@@ -13,9 +13,9 @@ import app from "../firebase";
 
 export default function EditProject() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(15).fill(null)); // Array to hold image URLs
-  const [files, setFiles] = useState(new Array(15).fill(null)); // Array to hold files
-  const [uploadProgress, setUploadProgress] = useState(new Array(15).fill(0)); // Array to hold upload progress
+  const [imageUrls, setImageUrls] = useState(new Array(15).fill(null));
+  const [files, setFiles] = useState(new Array(15).fill(null));
+  const [uploadProgress, setUploadProgress] = useState(new Array(15).fill(0));
   const [success, setSuccess] = useState(false);
 
   const location = useLocation();
@@ -28,9 +28,9 @@ export default function EditProject() {
       try {
         const res = await publicRequest.get(`/projects/find/${id}`);
         setProject(res.data);
-        setInputs(res.data); // Initialize inputs with project data
+        setInputs(res.data);
         if (res.data.images) {
-          setImageUrls(res.data.images); // Initialize imageUrls with existing images
+          setImageUrls(res.data.images);
         }
       } catch (error) {
         console.error("Error fetching the project:", error);
@@ -124,48 +124,48 @@ export default function EditProject() {
   return (
     <>
       {project && (
-        <NewProductC>
+        <Wrapper>
           <Link to="/admin/home">&#8678; Back to Admin Home</Link>
 
-          <AddProductTitle>Edit {project.title}</AddProductTitle>
-          <AddProductForm>
+          <Title>Edit {project.title}</Title>
+          <Form>
             <InputFields>
-              <AddProjectItem>
-                <AddProjectItemlabel>Title</AddProjectItemlabel>
-                <AddProjectIteminput
+              <Item>
+                <Itemlabel>Title</Itemlabel>
+                <Iteminput
                   name="title"
                   type="text"
                   defaultValue={project.title}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
-              <AddProjectItem>
-                <AddProjectItemlabel>Location</AddProjectItemlabel>
-                <AddProjectIteminput
+              </Item>
+              <Item>
+                <Itemlabel>Location</Itemlabel>
+                <Iteminput
                   name="location"
                   type="text"
                   defaultValue={project.location}
                   onChange={handleChange}
                 />
-              </AddProjectItem>
-              <AddProjectItemTextArea>
-                <AddProjectItemlabel>Text</AddProjectItemlabel>
+              </Item>
+              <ItemTextArea>
+                <Itemlabel>Text</Itemlabel>
                 <TextField
                   name="text"
                   type="textfield"
                   defaultValue={project.text}
                   onChange={handleChange}
                 />
-              </AddProjectItemTextArea>
+              </ItemTextArea>
             </InputFields>
             {Array.from({ length: 15 }).map((_, index) => (
-              <AddProjectItemImage key={index}>
+              <ItemImage key={index}>
                 {index === 0 ? (
-                  <AddProjectItemlabel>Thumbnail</AddProjectItemlabel>
+                  <Itemlabel>Thumbnail</Itemlabel>
                 ) : (
-                  <AddProjectItemlabel>Image {index}</AddProjectItemlabel>
+                  <Itemlabel>Image {index}</Itemlabel>
                 )}
-                <AddProjectItemImageinput
+                <ItemImageinput
                   type="file"
                   onChange={(e) => handleFileChange(e, index)}
                 />
@@ -180,11 +180,9 @@ export default function EditProject() {
                     alt={`Thumbnail ${index + 1}`}
                   />
                 )}
-              </AddProjectItemImage>
+              </ItemImage>
             ))}
-            <AddProjectButton onClick={handleClick}>
-              Apply Edits
-            </AddProjectButton>
+            <Button onClick={handleClick}>Apply Edits</Button>
             {success && (
               <>
                 <p>
@@ -193,24 +191,24 @@ export default function EditProject() {
                 <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>
             )}
-          </AddProductForm>
-        </NewProductC>
+          </Form>
+        </Wrapper>
       )}
     </>
   );
 }
 
-const NewProductC = styled.div`
+const Wrapper = styled.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
 `;
 
-const AddProductTitle = styled.h2`
+const Title = styled.h2`
   text-align: center;
 `;
 
-const AddProductForm = styled.form`
+const Form = styled.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -224,16 +222,16 @@ const InputFields = styled.div`
   width: 100%;
 `;
 
-const AddProjectItem = styled.div`
+const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
 
-const AddProjectItemTextArea = styled.div`
+const ItemTextArea = styled.div`
   width: 90%;
 `;
 
-const AddProjectItemImage = styled.div`
+const ItemImage = styled.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -243,13 +241,13 @@ const AddProjectItemImage = styled.div`
   border: 1px solid black;
 `;
 
-const AddProjectItemlabel = styled.label`
+const Itemlabel = styled.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 `;
 
-const AddProjectIteminput = styled.input`
+const Iteminput = styled.input`
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -259,7 +257,7 @@ const AddProjectIteminput = styled.input`
   }
 `;
 
-const AddProjectItemImageinput = styled.input`
+const ItemImageinput = styled.input`
   padding: 10px;
   border-radius: 10px;
 `;
@@ -277,7 +275,7 @@ const TextField = styled.textarea`
   }
 `;
 
-const AddProjectButton = styled.button`
+const Button = styled.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;

@@ -22,8 +22,8 @@ export default function Login() {
 
       if (response.ok) {
         const { accessToken } = await response.json();
-        localStorage.setItem("accessToken", accessToken); // Store access token in local storage
-        window.location.href = "/admin/home"; // Redirect to the admin page
+        localStorage.setItem("accessToken", accessToken);
+        window.location.href = "/admin/home";
       } else {
         setError("Invalid credentials");
       }
