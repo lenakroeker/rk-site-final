@@ -59,7 +59,7 @@ router.put("/:id", authenticateToken, async (req, res) => {
       req.body,
       { new: true }
     );
-    if (updatedProject) {
+    if (updatedArticle) {
       res.status(200).json(updatedArticle);
     } else {
       res.status(404).json({ message: "Article not found" });

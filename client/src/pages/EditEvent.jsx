@@ -46,10 +46,10 @@ export default function EditEvent() {
 
     try {
       const response = await fetch(`${API_URL}/events/${id}`, {
-        method: "PUT", // Corrected HTTP method
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Ensure the token is included in the Authorization header
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(event),
       });
@@ -117,7 +117,7 @@ export default function EditEvent() {
                 <p>
                   <strong>Success!</strong> Your event has been updated
                 </p>
-                <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+                <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>
             )}
           </AddProductForm>
@@ -160,16 +160,6 @@ const AddProjectItemTextArea = styled.div`
   width: 90%;
 `;
 
-const AddProjectItemImage = styled.div`
-  width: 25%;
-  padding: 5px;
-  text-align: center;
-  border-radius: 10px;
-  background: white;
-  margin: 10px;
-  border: 1px solid black;
-`;
-
 const AddProjectItemlabel = styled.label`
   color: #000000;
   font-weight: 600;
@@ -181,24 +171,6 @@ const AddProjectIteminput = styled.input`
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
-  &:focus {
-    background-color: #f3f9fe;
-  }
-`;
-
-const AddProjectItemImageinput = styled.input`
-  padding: 10px;
-  border-radius: 10px;
-`;
-
-const TextField = styled.textarea`
-  margin: 10px auto 30px auto;
-  padding: 10px;
-  height: 12em;
-  width: 100%;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  border-radius: 10px;
-  border: 2px solid black;
   &:focus {
     background-color: #f3f9fe;
   }
@@ -222,9 +194,7 @@ const AddProjectButton = styled.button`
   }
 `;
 
-const Progress = styled.progress``;
-
-const Thumbnail = styled.img`
-  width: 200px;
-  height: auto;
+const Back = styled(Link)`
+  display: block;
+  margin: 20px auto;
 `;

@@ -105,10 +105,10 @@ export default function EditProject() {
 
     try {
       const response = await fetch(`${API_URL}/projects/${id}`, {
-        method: "PUT", // Corrected HTTP method
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Ensure the token is included in the Authorization header
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(project),
       });
@@ -190,7 +190,7 @@ export default function EditProject() {
                 <p>
                   <strong>Success!</strong> Your project has been updated
                 </p>
-                <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+                <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>
             )}
           </AddProductForm>
@@ -300,4 +300,9 @@ const Progress = styled.progress``;
 const Thumbnail = styled.img`
   width: 200px;
   height: auto;
+`;
+
+const Back = styled(Link)`
+  display: block;
+  margin: 20px auto;
 `;

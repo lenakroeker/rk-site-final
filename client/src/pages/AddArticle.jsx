@@ -164,7 +164,7 @@ export default function NewProduct() {
             <p>
               <strong>Success!</strong> Your article has been created
             </p>
-            <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+            <Back to="/admin/home">&#8678; Back to Admin Home</Back>
             <New onClick={handleRefresh}>Create another article</New>
           </>
         )}
@@ -274,9 +274,16 @@ const Thumbnail = styled.img`
   height: auto;
 `;
 
+const Back = styled(Link)`
+  display: block;
+  margin: 20px auto;
+`;
+
 const New = styled.div`
   padding: 10px 30px;
   background-color: #8afd8a;
+  display: block;
+  margin: 20px auto;
   &:hover {
     background-color: #26fa26;
   }

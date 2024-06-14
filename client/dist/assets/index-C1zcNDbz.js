@@ -1323,7 +1323,7 @@ Content-Type: `+c.contentType+`\r
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */Ti(GR,KR,"app");var Pr={ALLUSERSPROFILE:"C:\\ProgramData",APPDATA:"C:\\Users\\lenak\\AppData\\Roaming",CHROME_CRASHPAD_PIPE_NAME:"\\\\.\\pipe\\crashpad_16188_QAGFEOLHYCJGYKKS",CommonProgramFiles:"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files",CommonProgramW6432:"C:\\Program Files\\Common Files",COMPUTERNAME:"LAPTOP-VH079RH1",ComSpec:"C:\\WINDOWS\\system32\\cmd.exe",DriverData:"C:\\Windows\\System32\\Drivers\\DriverData",EFC_4436:"1",FPS_BROWSER_APP_PROFILE_STRING:"Internet Explorer",FPS_BROWSER_USER_PROFILE_STRING:"Default",HOMEDRIVE:"C:",HOMEPATH:"\\Users\\lenak",LOCALAPPDATA:"C:\\Users\\lenak\\AppData\\Local",LOGONSERVER:"\\\\LAPTOP-VH079RH1",NODE_ENV:"production",NUMBER_OF_PROCESSORS:"8",OneDrive:"C:\\Users\\lenak\\OneDrive",ORIGINAL_XDG_CURRENT_DESKTOP:"undefined",OS:"Windows_NT",Path:"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\php-8.2.4;C:\\xampp\\php;C:\\Program Files\\Amazon\\AWSCLIV2\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\Users\\lenak\\AppData\\Local\\Microsoft\\WindowsApps;C:\\PHP7;C:\\Users\\lenak\\AppData\\Local\\Yarn\\bin;C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lenak\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\lenak\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lenak\\AppData\\Roaming\\npm",PATHEXT:".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",PROCESSOR_ARCHITECTURE:"AMD64",PROCESSOR_IDENTIFIER:"Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",PROCESSOR_LEVEL:"6",PROCESSOR_REVISION:"8e0c",ProgramData:"C:\\ProgramData",ProgramFiles:"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)",ProgramW6432:"C:\\Program Files",PSModulePath:"C:\\Users\\lenak\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",PUBLIC:"C:\\Users\\Public",SESSIONNAME:"Console",SystemDrive:"C:",SystemRoot:"C:\\WINDOWS",TEMP:"C:\\Users\\lenak\\AppData\\Local\\Temp",TMP:"C:\\Users\\lenak\\AppData\\Local\\Temp",USERDOMAIN:"LAPTOP-VH079RH1",USERDOMAIN_ROAMINGPROFILE:"LAPTOP-VH079RH1",USERNAME:"lenak",USERPROFILE:"C:\\Users\\lenak",windir:"C:\\WINDOWS",TERM_PROGRAM:"vscode",TERM_PROGRAM_VERSION:"1.90.0",LANG:"en_US.UTF-8",COLORTERM:"truecolor",GIT_ASKPASS:"c:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",VSCODE_GIT_ASKPASS_NODE:"C:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",VSCODE_GIT_ASKPASS_EXTRA_ARGS:"",VSCODE_GIT_ASKPASS_MAIN:"c:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",VSCODE_GIT_IPC_HANDLE:"\\\\.\\pipe\\vscode-git-fd5ef473db-sock",VSCODE_INJECTION:"1"};const qR={apiKey:Pr.REACT_APP_FIREBASE_API_KEY,authDomain:Pr.REACT_APP_FIREBASE_AUTH_DOMAIN,projectId:Pr.REACT_APP_FIREBASE_PROJECT_ID,storageBucket:Pr.REACT_APP_FIREBASE_STORAGE_BUCKET,messagingSenderId:Pr.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,appId:Pr.REACT_APP_FIREBASE_APP_ID,measurementId:Pr.REACT_APP_FIREBASE_MEASUREMENT_ID},Es=V1(qR);_s(Es);function YR(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=y=>{const{name:v,value:S}=y.target;t(m=>({...m,[v]:S}))},p=(y,v)=>{const S=y.target.files[0];if(!S)return;const m=[...i];m[v]=S,o(m);const f=new Date().getTime()+S.name,h=_s(Es),x=hu(h,f),E=fu(x,S);E.on("state_changed",b=>{const P=b.bytesTransferred/b.totalBytes*100;a(j=>{const k=[...j];return k[v]=P,k})},b=>{console.error(`Error uploading file ${f}:`,b)},()=>{pu(E.snapshot.ref).then(b=>{r(P=>{const j=[...P];return j[v]=b,j})}).catch(b=>{console.error(`Error getting download URL for file ${f}:`,b)})})},g=async y=>{y.preventDefault();const v=localStorage.getItem("accessToken"),S={...e,images:n.filter(Boolean)},m="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const f=await fetch(`${m}/projects`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${v}`},body:JSON.stringify(S)});if(!f.ok)throw new Error("Network response was not ok");const h=await f.json();c(!0)}catch(f){console.error("Error:",f)}},w=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(XR,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(JR,{children:"New Project"}),l.jsxs(QR,{children:[l.jsxs(ZR,{children:[l.jsxs(dg,{children:[l.jsx(mo,{children:"Title"}),l.jsx(fg,{name:"title",type:"text",placeholder:"title",onChange:d})]}),l.jsxs(dg,{children:[l.jsx(mo,{children:"Location"}),l.jsx(fg,{name:"location",type:"text",placeholder:"location",onChange:d})]}),l.jsxs(eI,{children:[l.jsx(mo,{children:"Text"}),l.jsx(rI,{name:"text",type:"textfield",placeholder:"text",onChange:d})]})]}),Array.from({length:10}).map((y,v)=>l.jsxs(tI,{children:[v===0?l.jsx(mo,{children:"Thumbnail"}):l.jsxs(mo,{children:["Image ",v]}),l.jsx(nI,{type:"file",onChange:S=>p(S,v)}),s[v]>0&&s[v]<100&&l.jsxs(oI,{value:s[v],max:"100",children:[s[v],"%"]}),n[v]&&l.jsx(sI,{src:n[v],alt:`Thumbnail ${v+1}`})]},v)),l.jsx(iI,{onClick:g,children:"Create"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your project has been created"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(aI,{onClick:w,children:"Create another project"})]})]})]})}const XR=_.div`
+ */Ti(GR,KR,"app");var Pr={ALLUSERSPROFILE:"C:\\ProgramData",APPDATA:"C:\\Users\\lenak\\AppData\\Roaming",CHROME_CRASHPAD_PIPE_NAME:"\\\\.\\pipe\\crashpad_16188_QAGFEOLHYCJGYKKS",CommonProgramFiles:"C:\\Program Files\\Common Files","CommonProgramFiles(x86)":"C:\\Program Files (x86)\\Common Files",CommonProgramW6432:"C:\\Program Files\\Common Files",COMPUTERNAME:"LAPTOP-VH079RH1",ComSpec:"C:\\WINDOWS\\system32\\cmd.exe",DriverData:"C:\\Windows\\System32\\Drivers\\DriverData",EFC_4436:"1",FPS_BROWSER_APP_PROFILE_STRING:"Internet Explorer",FPS_BROWSER_USER_PROFILE_STRING:"Default",HOMEDRIVE:"C:",HOMEPATH:"\\Users\\lenak",LOCALAPPDATA:"C:\\Users\\lenak\\AppData\\Local",LOGONSERVER:"\\\\LAPTOP-VH079RH1",NODE_ENV:"production",NUMBER_OF_PROCESSORS:"8",OneDrive:"C:\\Users\\lenak\\OneDrive",ORIGINAL_XDG_CURRENT_DESKTOP:"undefined",OS:"Windows_NT",Path:"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\php-8.2.4;C:\\xampp\\php;C:\\Program Files\\Amazon\\AWSCLIV2\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\Users\\lenak\\AppData\\Local\\Microsoft\\WindowsApps;C:\\PHP7;C:\\Users\\lenak\\AppData\\Local\\Yarn\\bin;C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lenak\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\lenak\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lenak\\AppData\\Roaming\\npm",PATHEXT:".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",PROCESSOR_ARCHITECTURE:"AMD64",PROCESSOR_IDENTIFIER:"Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",PROCESSOR_LEVEL:"6",PROCESSOR_REVISION:"8e0c",ProgramData:"C:\\ProgramData",ProgramFiles:"C:\\Program Files","ProgramFiles(x86)":"C:\\Program Files (x86)",ProgramW6432:"C:\\Program Files",PSModulePath:"C:\\Users\\lenak\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",PUBLIC:"C:\\Users\\Public",SESSIONNAME:"Console",SystemDrive:"C:",SystemRoot:"C:\\WINDOWS",TEMP:"C:\\Users\\lenak\\AppData\\Local\\Temp",TMP:"C:\\Users\\lenak\\AppData\\Local\\Temp",USERDOMAIN:"LAPTOP-VH079RH1",USERDOMAIN_ROAMINGPROFILE:"LAPTOP-VH079RH1",USERNAME:"lenak",USERPROFILE:"C:\\Users\\lenak",windir:"C:\\WINDOWS",TERM_PROGRAM:"vscode",TERM_PROGRAM_VERSION:"1.90.0",LANG:"en_US.UTF-8",COLORTERM:"truecolor",GIT_ASKPASS:"c:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",VSCODE_GIT_ASKPASS_NODE:"C:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",VSCODE_GIT_ASKPASS_EXTRA_ARGS:"",VSCODE_GIT_ASKPASS_MAIN:"c:\\Users\\lenak\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",VSCODE_GIT_IPC_HANDLE:"\\\\.\\pipe\\vscode-git-fd5ef473db-sock",VSCODE_INJECTION:"1"};const qR={apiKey:Pr.REACT_APP_FIREBASE_API_KEY,authDomain:Pr.REACT_APP_FIREBASE_AUTH_DOMAIN,projectId:Pr.REACT_APP_FIREBASE_PROJECT_ID,storageBucket:Pr.REACT_APP_FIREBASE_STORAGE_BUCKET,messagingSenderId:Pr.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,appId:Pr.REACT_APP_FIREBASE_APP_ID,measurementId:Pr.REACT_APP_FIREBASE_MEASUREMENT_ID},Es=V1(qR);_s(Es);function YR(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=y=>{const{name:v,value:S}=y.target;t(m=>({...m,[v]:S}))},p=(y,v)=>{const S=y.target.files[0];if(!S)return;const m=[...i];m[v]=S,o(m);const f=new Date().getTime()+S.name,h=_s(Es),x=hu(h,f),E=fu(x,S);E.on("state_changed",b=>{const P=b.bytesTransferred/b.totalBytes*100;a(j=>{const k=[...j];return k[v]=P,k})},b=>{console.error(`Error uploading file ${f}:`,b)},()=>{pu(E.snapshot.ref).then(b=>{r(P=>{const j=[...P];return j[v]=b,j})}).catch(b=>{console.error(`Error getting download URL for file ${f}:`,b)})})},g=async y=>{y.preventDefault();const v=localStorage.getItem("accessToken"),S={...e,images:n.filter(Boolean)},m="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const f=await fetch(`${m}/projects`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${v}`},body:JSON.stringify(S)});if(!f.ok)throw new Error("Network response was not ok");const h=await f.json();c(!0)}catch(f){console.error("Error:",f)}},w=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(XR,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(JR,{children:"New Project"}),l.jsxs(QR,{children:[l.jsxs(ZR,{children:[l.jsxs(dg,{children:[l.jsx(mo,{children:"Title"}),l.jsx(fg,{name:"title",type:"text",placeholder:"title",onChange:d})]}),l.jsxs(dg,{children:[l.jsx(mo,{children:"Location"}),l.jsx(fg,{name:"location",type:"text",placeholder:"location",onChange:d})]}),l.jsxs(eI,{children:[l.jsx(mo,{children:"Text"}),l.jsx(rI,{name:"text",type:"textfield",placeholder:"text",onChange:d})]})]}),Array.from({length:10}).map((y,v)=>l.jsxs(tI,{children:[v===0?l.jsx(mo,{children:"Thumbnail"}):l.jsxs(mo,{children:["Image ",v]}),l.jsx(nI,{type:"file",onChange:S=>p(S,v)}),s[v]>0&&s[v]<100&&l.jsxs(oI,{value:s[v],max:"100",children:[s[v],"%"]}),n[v]&&l.jsx(sI,{src:n[v],alt:`Thumbnail ${v+1}`})]},v)),l.jsx(iI,{onClick:g,children:"Create"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your project has been created"]}),l.jsx(aI,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(lI,{onClick:w,children:"Create another project"})]})]})]})}const XR=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
@@ -1396,24 +1396,29 @@ Content-Type: `+c.contentType+`\r
 `,oI=_.progress``,sI=_.img`
   width: 200px;
   height: auto;
-`,aI=_.div`
+`,aI=_(Je)`
+  display: block;
+  margin: 20px auto;
+`,lI=_.div`
   padding: 10px 30px;
   background-color: #8afd8a;
+  display: block;
+  margin: 20px auto;
   &:hover {
     background-color: #26fa26;
   }
-`;function lI(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(4).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=y=>{const{name:v,value:S}=y.target;t(m=>{const f={...m,[v]:S};return console.log(f),f})},p=(y,v)=>{const S=y.target.files[0];if(!S)return;const m=[...i];m[v]=S,o(m);const f=new Date().getTime()+S.name,h=_s(Es),x=hu(h,f),E=fu(x,S);E.on("state_changed",b=>{const P=b.bytesTransferred/b.totalBytes*100;a(j=>{const k=[...j];return k[v]=P,k})},b=>{console.error(`Error uploading file ${f}:`,b)},()=>{pu(E.snapshot.ref).then(b=>{r(P=>{const j=[...P];return j[v]=b,console.log({...e,images:j}),j})}).catch(b=>{console.error(`Error getting download URL for file ${f}:`,b)})})},g=async y=>{y.preventDefault();const v=localStorage.getItem("accessToken"),S={...e,images:n.filter(Boolean)};console.log(S);const m="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const f=await fetch(`${m}/news`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${v}`},body:JSON.stringify(S)});if(!f.ok)throw new Error("Network response was not ok");const h=await f.json();c(!0)}catch(f){console.error("Error:",f)}},w=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(uI,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(cI,{children:"New Article"}),l.jsxs(dI,{children:[l.jsxs(fI,{children:[l.jsxs(pg,{children:[l.jsx(Qs,{children:"Title"}),l.jsx(hg,{name:"title",type:"text",placeholder:"title",onChange:d})]}),l.jsxs(pg,{children:[l.jsx(Qs,{children:"Date"}),l.jsx(hg,{name:"date",type:"text",placeholder:"date",onChange:d})]}),l.jsxs(pI,{children:[l.jsx(Qs,{children:"Text"}),l.jsx(gI,{name:"text",type:"textfield",placeholder:"text",onChange:d})]})]}),Array.from({length:10}).map((y,v)=>l.jsxs(hI,{children:[l.jsxs(Qs,{children:["Image ",v+1]}),l.jsx(mI,{type:"file",onChange:S=>p(S,v)}),s[v]>0&&s[v]<100&&l.jsxs(vI,{value:s[v],max:"100",children:[s[v],"%"]}),n[v]&&l.jsx(wI,{src:n[v],alt:`Thumbnail ${v+1}`})]},v)),l.jsx(yI,{onClick:g,children:"Create"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your article has been created"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(xI,{onClick:w,children:"Create another article"})]})]})]})}const uI=_.div`
+`;function uI(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(4).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=y=>{const{name:v,value:S}=y.target;t(m=>{const f={...m,[v]:S};return console.log(f),f})},p=(y,v)=>{const S=y.target.files[0];if(!S)return;const m=[...i];m[v]=S,o(m);const f=new Date().getTime()+S.name,h=_s(Es),x=hu(h,f),E=fu(x,S);E.on("state_changed",b=>{const P=b.bytesTransferred/b.totalBytes*100;a(j=>{const k=[...j];return k[v]=P,k})},b=>{console.error(`Error uploading file ${f}:`,b)},()=>{pu(E.snapshot.ref).then(b=>{r(P=>{const j=[...P];return j[v]=b,console.log({...e,images:j}),j})}).catch(b=>{console.error(`Error getting download URL for file ${f}:`,b)})})},g=async y=>{y.preventDefault();const v=localStorage.getItem("accessToken"),S={...e,images:n.filter(Boolean)};console.log(S);const m="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const f=await fetch(`${m}/news`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${v}`},body:JSON.stringify(S)});if(!f.ok)throw new Error("Network response was not ok");const h=await f.json();c(!0)}catch(f){console.error("Error:",f)}},w=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(cI,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(dI,{children:"New Article"}),l.jsxs(fI,{children:[l.jsxs(pI,{children:[l.jsxs(pg,{children:[l.jsx(Qs,{children:"Title"}),l.jsx(hg,{name:"title",type:"text",placeholder:"title",onChange:d})]}),l.jsxs(pg,{children:[l.jsx(Qs,{children:"Date"}),l.jsx(hg,{name:"date",type:"text",placeholder:"date",onChange:d})]}),l.jsxs(hI,{children:[l.jsx(Qs,{children:"Text"}),l.jsx(yI,{name:"text",type:"textfield",placeholder:"text",onChange:d})]})]}),Array.from({length:10}).map((y,v)=>l.jsxs(mI,{children:[l.jsxs(Qs,{children:["Image ",v+1]}),l.jsx(gI,{type:"file",onChange:S=>p(S,v)}),s[v]>0&&s[v]<100&&l.jsxs(wI,{value:s[v],max:"100",children:[s[v],"%"]}),n[v]&&l.jsx(xI,{src:n[v],alt:`Thumbnail ${v+1}`})]},v)),l.jsx(vI,{onClick:g,children:"Create"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your article has been created"]}),l.jsx(SI,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(CI,{onClick:w,children:"Create another article"})]})]})]})}const cI=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
-`,cI=_.h2`
+`,dI=_.h2`
   text-align: center;
-`,dI=_.form`
+`,fI=_.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`,fI=_.div`
+`,pI=_.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1421,9 +1426,9 @@ Content-Type: `+c.contentType+`\r
 `,pg=_.div`
   width: 40%;
   margin: 10px;
-`,pI=_.div`
-  width: 90%;
 `,hI=_.div`
+  width: 90%;
+`,mI=_.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -1443,10 +1448,10 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,mI=_.input`
+`,gI=_.input`
   padding: 10px;
   border-radius: 10px;
-`,gI=_.textarea`
+`,yI=_.textarea`
   margin: 10px auto 30px auto;
   padding: 10px;
   height: 8em;
@@ -1456,7 +1461,7 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,yI=_.button`
+`,vI=_.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;
@@ -1472,27 +1477,32 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #2bff00;
   }
-`,vI=_.progress``,wI=_.img`
+`,wI=_.progress``,xI=_.img`
   width: 200px;
   height: auto;
-`,xI=_.div`
+`,SI=_(Je)`
+  display: block;
+  margin: 20px auto;
+`,CI=_.div`
   padding: 10px 30px;
   background-color: #8afd8a;
+  display: block;
+  margin: 20px auto;
   &:hover {
     background-color: #26fa26;
   }
-`;function SI(){const[e,t]=O.useState({}),[n,r]=O.useState(!1),i=a=>{const{name:u,value:c}=a.target;t(d=>({...d,[u]:c}))},o=async a=>{a.preventDefault();const u=localStorage.getItem("accessToken"),c={...e},d="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const p=await fetch(`${d}/events`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${u}`},body:JSON.stringify(c)});if(!p.ok)throw new Error("Network response was not ok");const g=await p.json();r(!0)}catch(p){console.error("Error:",p)}},s=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(CI,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(_I,{children:"New Event"}),l.jsxs(EI,{children:[l.jsxs(bI,{children:[l.jsxs(Zs,{children:[l.jsx(ea,{children:"Title"}),l.jsx(ta,{name:"title",type:"text",placeholder:"title",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"Location"}),l.jsx(ta,{name:"location",type:"text",placeholder:"location",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"Event Date"}),l.jsx(ta,{name:"date",type:"date",placeholder:"url",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"More info link"}),l.jsx(ta,{name:"link",type:"text",placeholder:"url",onChange:i})]})]}),l.jsx(PI,{onClick:o,children:"Create"}),n&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your event has been created"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(kI,{onClick:s,children:"Create another event"})]})]})]})}const CI=_.div`
+`;function _I(){const[e,t]=O.useState({}),[n,r]=O.useState(!1),i=a=>{const{name:u,value:c}=a.target;t(d=>({...d,[u]:c}))},o=async a=>{a.preventDefault();const u=localStorage.getItem("accessToken"),c={...e},d="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const p=await fetch(`${d}/events`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${u}`},body:JSON.stringify(c)});if(!p.ok)throw new Error("Network response was not ok");const g=await p.json();r(!0)}catch(p){console.error("Error:",p)}},s=()=>{window.location.reload(),window.scrollTo(0,0)};return l.jsxs(EI,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(bI,{children:"New Event"}),l.jsxs(PI,{children:[l.jsxs(kI,{children:[l.jsxs(Zs,{children:[l.jsx(ea,{children:"Title"}),l.jsx(ta,{name:"title",type:"text",placeholder:"title",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"Location"}),l.jsx(ta,{name:"location",type:"text",placeholder:"location",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"Event Date"}),l.jsx(ta,{name:"date",type:"date",placeholder:"url",onChange:i})]}),l.jsxs(Zs,{children:[l.jsx(ea,{children:"More info link"}),l.jsx(ta,{name:"link",type:"text",placeholder:"url",onChange:i})]})]}),l.jsx(TI,{onClick:o,children:"Create"}),n&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your event has been created"]}),l.jsx(OI,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(AI,{onClick:s,children:"Create another event"})]})]})]})}const EI=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
-`,_I=_.h2`
+`,bI=_.h2`
   text-align: center;
-`,EI=_.form`
+`,PI=_.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`,bI=_.div`
+`,kI=_.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1514,7 +1524,7 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,PI=_.button`
+`,TI=_.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;
@@ -1530,16 +1540,21 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #2bff00;
   }
-`,kI=_.div`
+`,OI=_(Je)`
+  display: block;
+  margin: 20px auto;
+`,AI=_.div`
   padding: 10px 30px;
   background-color: #8afd8a;
+  display: block;
+  margin: 20px auto;
   &:hover {
     background-color: #26fa26;
   }
-`;function TI(){const e=()=>{localStorage.removeItem("accessToken"),window.location.href="/admin"};return l.jsxs(OI,{children:[l.jsx(AI,{children:"Welcome Admin!"}),l.jsx(Je,{to:"/admin/addProject",children:l.jsx(kr,{children:"Add Project"})}),l.jsx(Je,{to:"/admin/addarticle",children:l.jsx(kr,{children:"Add News Article"})}),l.jsx(Je,{to:"/admin/addevent",children:l.jsx(kr,{children:"Add Event"})}),l.jsxs(jI,{children:[l.jsx(Je,{to:"/admin/edit-delete-project",children:l.jsx(kr,{children:"Edit / Delete Project"})}),l.jsx(Je,{to:"/admin/edit-delete-article",children:l.jsx(kr,{children:"Edit / Delete News Article"})}),l.jsx(Je,{to:"/admin/edit-delete-event",children:l.jsx(kr,{children:"Edit / Delete Event"})})]}),l.jsx(kr,{onClick:e,children:"Logout"})]})}const OI=_.div`
+`;function jI(){const e=()=>{localStorage.removeItem("accessToken"),window.location.href="/admin"};return l.jsxs(RI,{children:[l.jsx(II,{children:"Welcome Admin!"}),l.jsx(Je,{to:"/admin/addProject",children:l.jsx(kr,{children:"Add Project"})}),l.jsx(Je,{to:"/admin/addarticle",children:l.jsx(kr,{children:"Add News Article"})}),l.jsx(Je,{to:"/admin/addevent",children:l.jsx(kr,{children:"Add Event"})}),l.jsxs(NI,{children:[l.jsx(Je,{to:"/admin/edit-delete-project",children:l.jsx(kr,{children:"Edit / Delete Project"})}),l.jsx(Je,{to:"/admin/edit-delete-article",children:l.jsx(kr,{children:"Edit / Delete News Article"})}),l.jsx(Je,{to:"/admin/edit-delete-event",children:l.jsx(kr,{children:"Edit / Delete Event"})})]}),l.jsx(kr,{onClick:e,children:"Logout"})]})}const RI=_.div`
   margin: 100px 20vw;
   padding: 30px;
-`,AI=_.h2`
+`,II=_.h2`
   text-align: center;
 `,kr=_.button`
   margin: 10px;
@@ -1551,20 +1566,20 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #8efbbf;
   }
-`,jI=_.div`
+`,NI=_.div`
   display: flex;
-`;function RI(){const[e,t]=O.useState([]);O.useEffect(()=>{(async()=>{try{const i=await wn.get("projects");t(i.data.reverse()),console.log(i.data)}catch(i){console.error("Error fetching projects:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/projects/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),t(e.filter(s=>s.id!==r))}catch(s){console.error("Error deleting the project:",s)}};return l.jsxs(II,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(NI,{children:e&&e.map((r,i)=>l.jsxs(DI,{children:[l.jsx(LI,{children:r.title}),l.jsx(MI,{end:!0,to:`/admin/edit-project/${r._id}`,children:"Edit"}),l.jsx(FI,{onClick:()=>n(r._id),children:"Delete"})]},i))})]})}const II=_.div`
+`;function DI(){const[e,t]=O.useState([]);O.useEffect(()=>{(async()=>{try{const i=await wn.get("projects");t(i.data.reverse()),console.log(i.data)}catch(i){console.error("Error fetching projects:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/projects/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),t(e.filter(s=>s.id!==r))}catch(s){console.error("Error deleting the project:",s)}};return l.jsxs(LI,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(MI,{children:e&&e.map((r,i)=>l.jsxs(FI,{children:[l.jsx(UI,{children:r.title}),l.jsx($I,{end:!0,to:`/admin/edit-project/${r._id}`,children:"Edit"}),l.jsx(BI,{onClick:()=>n(r._id),children:"Delete"})]},i))})]})}const LI=_.div`
   margin: 100px 20vw;
   padding: 30px;
-`,NI=_.div``,DI=_.div`
+`,MI=_.div``,FI=_.div`
   display: flex;
   width: 100%;
   margin: 10px 0;
   padding: 5px;
   border: 1px solid black;
-`,LI=_.div`
+`,UI=_.div`
   width: 70%;
-`,MI=_(Gn)`
+`,$I=_(Gn)`
   width: 100px;
   background: #a3ffa3;
   text-align: center;
@@ -1573,25 +1588,25 @@ Content-Type: `+c.contentType+`\r
   justify-content: center;
   border-radius: 10px;
   margin: 0 10px;
-`,FI=_.button`
+`,BI=_.button`
   width: 100px;
   background: #fc9797;
-`;function UI(){const[e,t]=O.useState([]);O.useEffect(()=>{(async()=>{try{const i=await wn.get("/events");t(i.data),console.log(i.data)}catch(i){console.error("Error fetching events:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/events/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),t(e.filter(s=>s._id!==r))}catch(s){console.error("Error deleting the event:",s)}};return l.jsxs($I,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(BI,{children:e&&e.map(r=>l.jsxs(zI,{children:[l.jsx(HI,{children:r.title}),l.jsx(WI,{to:`/admin/edit-event/${r._id}`,children:"Edit"}),l.jsx(VI,{onClick:()=>n(r._id),children:"Delete"})]},r._id))})]})}const $I=_.div`
+`;function zI(){const[e,t]=O.useState([]);O.useEffect(()=>{(async()=>{try{const i=await wn.get("/events");t(i.data),console.log(i.data)}catch(i){console.error("Error fetching events:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/events/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),t(e.filter(s=>s._id!==r))}catch(s){console.error("Error deleting the event:",s)}};return l.jsxs(HI,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(WI,{children:e&&e.map(r=>l.jsxs(VI,{children:[l.jsx(GI,{children:r.title}),l.jsx(KI,{to:`/admin/edit-event/${r._id}`,children:"Edit"}),l.jsx(qI,{onClick:()=>n(r._id),children:"Delete"})]},r._id))})]})}const HI=_.div`
   margin: 100px 20vw;
   padding: 30px;
-`,BI=_.div`
+`,WI=_.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-`,zI=_.div`
+`,VI=_.div`
   display: flex;
   width: 100%;
   margin: 10px 0;
   padding: 5px;
   border: 1px solid black;
-`,HI=_.div`
+`,GI=_.div`
   width: 70%;
-`,WI=_(Gn)`
+`,KI=_(Gn)`
   width: 100px;
   background: #a3ffa3;
   text-align: center;
@@ -1600,23 +1615,23 @@ Content-Type: `+c.contentType+`\r
   justify-content: center;
   border-radius: 10px;
   margin: 0 10px;
-`,VI=_.button`
+`,qI=_.button`
   width: 100px;
   background: #fc9797;
   border: none;
   cursor: pointer;
-`;function GI(){const[e,t]=O.useState([]);O.useEffect(()=>{console.log("start"),(async()=>{try{const i=await wn.get("news");t(i.data.reverse()),console.log(i.data)}catch(i){console.error("Error fetching articles:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/news/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),setArticle(article.filter(s=>s.id!==r))}catch(s){console.error("Error deleting the article:",s)}};return l.jsxs(KI,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(qI,{children:e&&e.map((r,i)=>l.jsxs(YI,{children:[l.jsx(XI,{children:r.title}),l.jsx(JI,{end:!0,to:`/admin/edit-article/${r._id}`,children:"Edit"}),l.jsx(QI,{onClick:()=>n(r._id),children:"Delete"})]},i))})]})}const KI=_.div`
+`;function YI(){const[e,t]=O.useState([]);O.useEffect(()=>{console.log("start"),(async()=>{try{const i=await wn.get("news");t(i.data.reverse()),console.log(i.data)}catch(i){console.error("Error fetching articles:",i)}})()},[]);const n=async r=>{const i=localStorage.getItem("accessToken"),o="https://rk-site-c30da6953ee4.herokuapp.com/api";try{await fetch(`${o}/news/${r}`,{method:"DELETE",headers:{"Content-Type":"application/json",Authorization:`Bearer ${i}`}}),setArticle(article.filter(s=>s.id!==r))}catch(s){console.error("Error deleting the article:",s)}};return l.jsxs(XI,{children:[l.jsx(Gn,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsx(JI,{children:e&&e.map((r,i)=>l.jsxs(QI,{children:[l.jsx(ZI,{children:r.title}),l.jsx(eN,{end:!0,to:`/admin/edit-article/${r._id}`,children:"Edit"}),l.jsx(tN,{onClick:()=>n(r._id),children:"Delete"})]},i))})]})}const XI=_.div`
   margin: 100px 20vw;
   padding: 30px;
-`,qI=_.div``,YI=_.div`
+`,JI=_.div``,QI=_.div`
   display: flex;
   width: 100%;
   margin: 10px 0;
   padding: 5px;
   border: 1px solid black;
-`,XI=_.div`
+`,ZI=_.div`
   width: 70%;
-`,JI=_(Gn)`
+`,eN=_(Gn)`
   width: 100px;
   background: #a3ffa3;
   text-align: center;
@@ -1625,21 +1640,21 @@ Content-Type: `+c.contentType+`\r
   justify-content: center;
   border-radius: 10px;
   margin: 0 10px;
-`,QI=_.button`
+`,tN=_.button`
   width: 100px;
   background: #fc9797;
-`;function ZI(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=An(),[p,g]=O.useState(null),w=d.pathname.split("/")[3];O.useEffect(()=>{(async()=>{try{const f=await wn.get(`/projects/find/${w}`);g(f.data),t(f.data),f.data.images&&r(f.data.images)}catch(f){console.error("Error fetching the project:",f)}})()},[w]);const y=m=>{const{name:f,value:h}=m.target;t(x=>({...x,[f]:h}))},v=(m,f)=>{const h=m.target.files[0];if(!h)return;const x=[...i];x[f]=h,o(x);const E=new Date().getTime()+h.name,b=_s(Es),P=hu(b,E),j=fu(P,h);j.on("state_changed",k=>{const R=k.bytesTransferred/k.totalBytes*100;a(W=>{const T=[...W];return T[f]=R,T})},k=>{console.error(`Error uploading file ${E}:`,k)},()=>{pu(j.snapshot.ref).then(k=>{r(R=>{const W=[...R];return W[f]=k,W})}).catch(k=>{console.error(`Error getting download URL for file ${E}:`,k)})})},S=async m=>{m.preventDefault();const f=localStorage.getItem("accessToken"),h={...e,images:n.filter(Boolean)},x="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${x}/projects/${w}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${f}`},body:JSON.stringify(h)})).ok)throw new Error("Network response was not ok");c(!0)}catch(E){console.error("Error:",E)}};return l.jsx(l.Fragment,{children:p&&l.jsxs(eN,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(tN,{children:["Edit ",p.title]}),l.jsxs(nN,{children:[l.jsxs(rN,{children:[l.jsxs(mg,{children:[l.jsx(go,{children:"Title"}),l.jsx(gg,{name:"title",type:"text",defaultValue:p.title,onChange:y})]}),l.jsxs(mg,{children:[l.jsx(go,{children:"Location"}),l.jsx(gg,{name:"location",type:"text",defaultValue:p.location,onChange:y})]}),l.jsxs(iN,{children:[l.jsx(go,{children:"Text"}),l.jsx(aN,{name:"text",type:"textfield",defaultValue:p.text,onChange:y})]})]}),Array.from({length:10}).map((m,f)=>l.jsxs(oN,{children:[f===0?l.jsx(go,{children:"Thumbnail"}):l.jsxs(go,{children:["Image ",f]}),l.jsx(sN,{type:"file",onChange:h=>v(h,f)}),s[f]>0&&s[f]<100&&l.jsxs(uN,{value:s[f],max:"100",children:[s[f],"%"]}),n[f]&&l.jsx(cN,{src:n[f],alt:`Thumbnail ${f+1}`})]},f)),l.jsx(lN,{onClick:S,children:"Apply Edits"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your project has been updated"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const eN=_.div`
+`;function nN(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=An(),[p,g]=O.useState(null),w=d.pathname.split("/")[3];O.useEffect(()=>{(async()=>{try{const f=await wn.get(`/projects/find/${w}`);g(f.data),t(f.data),f.data.images&&r(f.data.images)}catch(f){console.error("Error fetching the project:",f)}})()},[w]);const y=m=>{const{name:f,value:h}=m.target;t(x=>({...x,[f]:h}))},v=(m,f)=>{const h=m.target.files[0];if(!h)return;const x=[...i];x[f]=h,o(x);const E=new Date().getTime()+h.name,b=_s(Es),P=hu(b,E),j=fu(P,h);j.on("state_changed",k=>{const R=k.bytesTransferred/k.totalBytes*100;a(W=>{const T=[...W];return T[f]=R,T})},k=>{console.error(`Error uploading file ${E}:`,k)},()=>{pu(j.snapshot.ref).then(k=>{r(R=>{const W=[...R];return W[f]=k,W})}).catch(k=>{console.error(`Error getting download URL for file ${E}:`,k)})})},S=async m=>{m.preventDefault();const f=localStorage.getItem("accessToken"),h={...e,images:n.filter(Boolean)},x="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${x}/projects/${w}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${f}`},body:JSON.stringify(h)})).ok)throw new Error("Network response was not ok");c(!0)}catch(E){console.error("Error:",E)}};return l.jsx(l.Fragment,{children:p&&l.jsxs(rN,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(iN,{children:["Edit ",p.title]}),l.jsxs(oN,{children:[l.jsxs(sN,{children:[l.jsxs(mg,{children:[l.jsx(go,{children:"Title"}),l.jsx(gg,{name:"title",type:"text",defaultValue:p.title,onChange:y})]}),l.jsxs(mg,{children:[l.jsx(go,{children:"Location"}),l.jsx(gg,{name:"location",type:"text",defaultValue:p.location,onChange:y})]}),l.jsxs(aN,{children:[l.jsx(go,{children:"Text"}),l.jsx(cN,{name:"text",type:"textfield",defaultValue:p.text,onChange:y})]})]}),Array.from({length:10}).map((m,f)=>l.jsxs(lN,{children:[f===0?l.jsx(go,{children:"Thumbnail"}):l.jsxs(go,{children:["Image ",f]}),l.jsx(uN,{type:"file",onChange:h=>v(h,f)}),s[f]>0&&s[f]<100&&l.jsxs(fN,{value:s[f],max:"100",children:[s[f],"%"]}),n[f]&&l.jsx(pN,{src:n[f],alt:`Thumbnail ${f+1}`})]},f)),l.jsx(dN,{onClick:S,children:"Apply Edits"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your project has been updated"]}),l.jsx(hN,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const rN=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
-`,tN=_.h2`
+`,iN=_.h2`
   text-align: center;
-`,nN=_.form`
+`,oN=_.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`,rN=_.div`
+`,sN=_.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1647,9 +1662,9 @@ Content-Type: `+c.contentType+`\r
 `,mg=_.div`
   width: 40%;
   margin: 10px;
-`,iN=_.div`
+`,aN=_.div`
   width: 90%;
-`,oN=_.div`
+`,lN=_.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -1669,10 +1684,10 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,sN=_.input`
+`,uN=_.input`
   padding: 10px;
   border-radius: 10px;
-`,aN=_.textarea`
+`,cN=_.textarea`
   margin: 10px auto 30px auto;
   padding: 10px;
   height: 12em;
@@ -1683,7 +1698,7 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,lN=_.button`
+`,dN=_.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;
@@ -1699,21 +1714,24 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #2bff00;
   }
-`,uN=_.progress``,cN=_.img`
+`,fN=_.progress``,pN=_.img`
   width: 200px;
   height: auto;
-`;function dN(){const[e,t]=O.useState({}),[n,r]=O.useState(!1),i=An(),[o,s]=O.useState(null),a=i.pathname.split("/")[3];console.log(a),O.useEffect(()=>{(async()=>{try{const p=await wn.get(`/events/find/${a}`);s(p.data),t(p.data),console.log(p.data)}catch(p){console.error("Error fetching the event:",p)}})()},[a]);const u=d=>{const{name:p,value:g}=d.target;t(w=>({...w,[p]:g}))},c=async d=>{d.preventDefault();const p=localStorage.getItem("accessToken"),g={...e},w="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${w}/events/${a}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${p}`},body:JSON.stringify(g)})).ok)throw new Error("Network response was not ok");r(!0)}catch(y){console.error("Error:",y)}};return l.jsx(l.Fragment,{children:o&&l.jsxs(fN,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(pN,{children:["Edit ",o.title]}),l.jsxs(hN,{children:[l.jsxs(mN,{children:[l.jsxs(yg,{children:[l.jsx(na,{children:"Title"}),l.jsx(ra,{name:"title",type:"text",defaultValue:o.title,onChange:u})]}),l.jsxs(yg,{children:[l.jsx(na,{children:"Location"}),l.jsx(ra,{name:"location",type:"text",defaultValue:o.location,onChange:u})]}),l.jsxs(vg,{children:[l.jsx(na,{children:"Date"}),l.jsx(ra,{name:"date",type:"date",defaultValue:o.date,onChange:u})]}),l.jsxs(vg,{children:[l.jsx(na,{children:"More info URL"}),l.jsx(ra,{name:"link",type:"url",defaultValue:o.url,onChange:u})]})]}),l.jsx(gN,{onClick:c,children:"Apply Edits"}),n&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your event has been updated"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const fN=_.div`
+`,hN=_(Je)`
+  display: block;
+  margin: 20px auto;
+`;function mN(){const[e,t]=O.useState({}),[n,r]=O.useState(!1),i=An(),[o,s]=O.useState(null),a=i.pathname.split("/")[3];console.log(a),O.useEffect(()=>{(async()=>{try{const p=await wn.get(`/events/find/${a}`);s(p.data),t(p.data),console.log(p.data)}catch(p){console.error("Error fetching the event:",p)}})()},[a]);const u=d=>{const{name:p,value:g}=d.target;t(w=>({...w,[p]:g}))},c=async d=>{d.preventDefault();const p=localStorage.getItem("accessToken"),g={...e},w="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${w}/events/${a}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${p}`},body:JSON.stringify(g)})).ok)throw new Error("Network response was not ok");r(!0)}catch(y){console.error("Error:",y)}};return l.jsx(l.Fragment,{children:o&&l.jsxs(gN,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(yN,{children:["Edit ",o.title]}),l.jsxs(vN,{children:[l.jsxs(wN,{children:[l.jsxs(yg,{children:[l.jsx(na,{children:"Title"}),l.jsx(ra,{name:"title",type:"text",defaultValue:o.title,onChange:u})]}),l.jsxs(yg,{children:[l.jsx(na,{children:"Location"}),l.jsx(ra,{name:"location",type:"text",defaultValue:o.location,onChange:u})]}),l.jsxs(vg,{children:[l.jsx(na,{children:"Date"}),l.jsx(ra,{name:"date",type:"date",defaultValue:o.date,onChange:u})]}),l.jsxs(vg,{children:[l.jsx(na,{children:"More info URL"}),l.jsx(ra,{name:"link",type:"url",defaultValue:o.url,onChange:u})]})]}),l.jsx(xN,{onClick:c,children:"Apply Edits"}),n&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your event has been updated"]}),l.jsx(SN,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const gN=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
-`,pN=_.h2`
+`,yN=_.h2`
   text-align: center;
-`,hN=_.form`
+`,vN=_.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`,mN=_.div`
+`,wN=_.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1723,15 +1741,7 @@ Content-Type: `+c.contentType+`\r
   margin: 10px;
 `,vg=_.div`
   width: 90%;
-`;_.div`
-  width: 25%;
-  padding: 5px;
-  text-align: center;
-  border-radius: 10px;
-  background: white;
-  margin: 10px;
-  border: 1px solid black;
-`;const na=_.label`
+`,na=_.label`
   color: #000000;
   font-weight: 600;
   font-size: 16px;
@@ -1743,21 +1753,7 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`;_.input`
-  padding: 10px;
-  border-radius: 10px;
-`;_.textarea`
-  margin: 10px auto 30px auto;
-  padding: 10px;
-  height: 12em;
-  width: 100%;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  border-radius: 10px;
-  border: 2px solid black;
-  &:focus {
-    background-color: #f3f9fe;
-  }
-`;const gN=_.button`
+`,xN=_.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;
@@ -1773,21 +1769,21 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #2bff00;
   }
-`;_.progress``;_.img`
-  width: 200px;
-  height: auto;
-`;function yN(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=An(),[p,g]=O.useState(null),w=d.pathname.split("/")[3];O.useEffect(()=>{(async()=>{try{const f=await wn.get(`/news/find/${w}`);g(f.data),t(f.data),f.data.images&&r(f.data.images)}catch(f){console.error("Error fetching the article:",f)}})()},[w]);const y=m=>{const{name:f,value:h}=m.target;t(x=>({...x,[f]:h}))},v=(m,f)=>{const h=m.target.files[0];if(!h)return;const x=[...i];x[f]=h,o(x);const E=new Date().getTime()+h.name,b=_s(Es),P=hu(b,E),j=fu(P,h);j.on("state_changed",k=>{const R=k.bytesTransferred/k.totalBytes*100;a(W=>{const T=[...W];return T[f]=R,T})},k=>{console.error(`Error uploading file ${E}:`,k)},()=>{pu(j.snapshot.ref).then(k=>{r(R=>{const W=[...R];return W[f]=k,W})}).catch(k=>{console.error(`Error getting download URL for file ${E}:`,k)})})},S=async m=>{m.preventDefault();const f=localStorage.getItem("accessToken"),h={...e,images:n.filter(Boolean)},x="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${x}/news/${w}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${f}`},body:JSON.stringify(h)})).ok)throw new Error("Network response was not ok");c(!0)}catch(E){console.error("Error:",E)}};return l.jsx(l.Fragment,{children:p&&l.jsxs(vN,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(wN,{children:["Edit ",p.title]}),l.jsxs(xN,{children:[l.jsxs(SN,{children:[l.jsxs(wg,{children:[l.jsx(yo,{children:"Title"}),l.jsx(xg,{name:"title",type:"text",defaultValue:p.title,onChange:y})]}),l.jsxs(wg,{children:[l.jsx(yo,{children:"Date"}),l.jsx(xg,{name:"date",type:"text",defaultValue:p.date,onChange:y})]}),l.jsxs(CN,{children:[l.jsx(yo,{children:"Text"}),l.jsx(bN,{name:"text",type:"textfield",defaultValue:p.text,onChange:y})]})]}),Array.from({length:10}).map((m,f)=>l.jsxs(_N,{children:[f===0?l.jsx(yo,{children:"Thumbnail"}):l.jsxs(yo,{children:["Image ",f]}),l.jsx(EN,{type:"file",onChange:h=>v(h,f)}),s[f]>0&&s[f]<100&&l.jsxs(kN,{value:s[f],max:"100",children:[s[f],"%"]}),n[f]&&l.jsx(TN,{src:n[f],alt:`Thumbnail ${f+1}`})]},f)),l.jsx(PN,{onClick:S,children:"Apply Edits"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your article has been updated"]}),l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const vN=_.div`
+`,SN=_(Je)`
+  display: block;
+  margin: 20px auto;
+`;function CN(){const[e,t]=O.useState({}),[n,r]=O.useState(new Array(10).fill(null)),[i,o]=O.useState(new Array(10).fill(null)),[s,a]=O.useState(new Array(10).fill(0)),[u,c]=O.useState(!1),d=An(),[p,g]=O.useState(null),w=d.pathname.split("/")[3];O.useEffect(()=>{(async()=>{try{const f=await wn.get(`/news/find/${w}`);g(f.data),t(f.data),f.data.images&&r(f.data.images)}catch(f){console.error("Error fetching the article:",f)}})()},[w]);const y=m=>{const{name:f,value:h}=m.target;t(x=>({...x,[f]:h}))},v=(m,f)=>{const h=m.target.files[0];if(!h)return;const x=[...i];x[f]=h,o(x);const E=new Date().getTime()+h.name,b=_s(Es),P=hu(b,E),j=fu(P,h);j.on("state_changed",k=>{const R=k.bytesTransferred/k.totalBytes*100;a(W=>{const T=[...W];return T[f]=R,T})},k=>{console.error(`Error uploading file ${E}:`,k)},()=>{pu(j.snapshot.ref).then(k=>{r(R=>{const W=[...R];return W[f]=k,W})}).catch(k=>{console.error(`Error getting download URL for file ${E}:`,k)})})},S=async m=>{m.preventDefault();const f=localStorage.getItem("accessToken"),h={...e,images:n.filter(Boolean)},x="https://rk-site-c30da6953ee4.herokuapp.com/api";try{if(!(await fetch(`${x}/news/${w}`,{method:"PUT",headers:{"Content-Type":"application/json",Authorization:`Bearer ${f}`},body:JSON.stringify(h)})).ok)throw new Error("Network response was not ok");c(!0)}catch(E){console.error("Error:",E)}};return l.jsx(l.Fragment,{children:p&&l.jsxs(_N,{children:[l.jsx(Je,{to:"/admin/home",children:"⇦ Back to Admin Home"}),l.jsxs(EN,{children:["Edit ",p.title]}),l.jsxs(bN,{children:[l.jsxs(PN,{children:[l.jsxs(wg,{children:[l.jsx(yo,{children:"Title"}),l.jsx(xg,{name:"title",type:"text",defaultValue:p.title,onChange:y})]}),l.jsxs(wg,{children:[l.jsx(yo,{children:"Date"}),l.jsx(xg,{name:"date",type:"text",defaultValue:p.date,onChange:y})]}),l.jsxs(kN,{children:[l.jsx(yo,{children:"Text"}),l.jsx(AN,{name:"text",type:"textfield",defaultValue:p.text,onChange:y})]})]}),Array.from({length:10}).map((m,f)=>l.jsxs(TN,{children:[f===0?l.jsx(yo,{children:"Thumbnail"}):l.jsxs(yo,{children:["Image ",f]}),l.jsx(ON,{type:"file",onChange:h=>v(h,f)}),s[f]>0&&s[f]<100&&l.jsxs(RN,{value:s[f],max:"100",children:[s[f],"%"]}),n[f]&&l.jsx(IN,{src:n[f],alt:`Thumbnail ${f+1}`})]},f)),l.jsx(jN,{onClick:S,children:"Apply Edits"}),u&&l.jsxs(l.Fragment,{children:[l.jsxs("p",{children:[l.jsx("strong",{children:"Success!"})," Your article has been updated"]}),l.jsx(NN,{to:"/admin/home",children:"⇦ Back to Admin Home"})]})]})]})})}const _N=_.div`
   margin: 100px 10vw;
   padding: 30px;
   background: #eee7e741;
-`,wN=_.h2`
+`,EN=_.h2`
   text-align: center;
-`,xN=_.form`
+`,bN=_.form`
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`,SN=_.div`
+`,PN=_.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1795,9 +1791,9 @@ Content-Type: `+c.contentType+`\r
 `,wg=_.div`
   width: 40%;
   margin: 10px;
-`,CN=_.div`
+`,kN=_.div`
   width: 90%;
-`,_N=_.div`
+`,TN=_.div`
   width: 25%;
   padding: 5px;
   text-align: center;
@@ -1817,10 +1813,10 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,EN=_.input`
+`,ON=_.input`
   padding: 10px;
   border-radius: 10px;
-`,bN=_.textarea`
+`,AN=_.textarea`
   margin: 10px auto 30px auto;
   padding: 10px;
   height: 12em;
@@ -1831,7 +1827,7 @@ Content-Type: `+c.contentType+`\r
   &:focus {
     background-color: #f3f9fe;
   }
-`,PN=_.button`
+`,jN=_.button`
   margin: 30px 20%;
   padding: 20px 100px;
   width: 50%;
@@ -1847,20 +1843,23 @@ Content-Type: `+c.contentType+`\r
   &:active {
     background-color: #2bff00;
   }
-`,kN=_.progress``,TN=_.img`
+`,RN=_.progress``,IN=_.img`
   width: 200px;
   height: auto;
-`;function ON(){const[e,t]=O.useState(""),[n,r]=O.useState(""),[i,o]=O.useState(""),s=async c=>{c.preventDefault();const d="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const p=await fetch(`${d}/admin/login`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:e,password:n})});if(p.ok){const{accessToken:g}=await p.json();localStorage.setItem("accessToken",g),window.location.href="/admin/home"}else o("Invalid credentials")}catch(p){console.error("Error:",p),o("An error occurred. Please try again later.")}},a=c=>{t(c.target.value)},u=c=>{r(c.target.value)};return l.jsx(AN,{children:l.jsxs("form",{onSubmit:s,children:[l.jsx(Sg,{type:"text",placeholder:"username",value:e,onChange:a}),l.jsx(Sg,{type:"password",placeholder:"password",value:n,onChange:u}),l.jsx(jN,{type:"submit",children:"Submit"}),i&&l.jsx(RN,{children:i})]})})}const AN=_.div`
+`,NN=_(Je)`
+  display: block;
+  margin: 20px auto;
+`;function DN(){const[e,t]=O.useState(""),[n,r]=O.useState(""),[i,o]=O.useState(""),s=async c=>{c.preventDefault();const d="https://rk-site-c30da6953ee4.herokuapp.com/api";try{const p=await fetch(`${d}/admin/login`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:e,password:n})});if(p.ok){const{accessToken:g}=await p.json();localStorage.setItem("accessToken",g),window.location.href="/admin/home"}else o("Invalid credentials")}catch(p){console.error("Error:",p),o("An error occurred. Please try again later.")}},a=c=>{t(c.target.value)},u=c=>{r(c.target.value)};return l.jsx(LN,{children:l.jsxs("form",{onSubmit:s,children:[l.jsx(Sg,{type:"text",placeholder:"username",value:e,onChange:a}),l.jsx(Sg,{type:"password",placeholder:"password",value:n,onChange:u}),l.jsx(MN,{type:"submit",children:"Submit"}),i&&l.jsx(FN,{children:i})]})})}const LN=_.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
   align-items: center;
 `,Sg=_.input`
   margin: 20px;
-`,jN=_.button`
+`,MN=_.button`
   margin: 20px;
   border: 1px solid green;
-`,RN=_.div`
+`,FN=_.div`
   color: red;
   margin-top: 10px;
-`,Cn=({children:e})=>(console.log("private route",e),localStorage.getItem("accessToken")?e:l.jsx(R_,{to:"/admin/home"}));function IN(){return l.jsxs(z_,{children:[l.jsx(q_,{}),l.jsxs(N_,{children:[l.jsx(We,{path:"/",element:l.jsx(Lk,{})}),l.jsx(We,{path:"/projects",element:l.jsx(Zk,{})}),l.jsx(We,{path:"/projects/:id",element:l.jsx(rT,{})}),l.jsx(We,{path:"/media",element:l.jsx(Hk,{})}),l.jsx(We,{path:"/contact",element:l.jsx(iO,{})}),l.jsx(We,{path:"/cv",element:l.jsx(kO,{})}),l.jsx(We,{path:"/matchbox",element:l.jsx(IO,{})}),l.jsx(We,{path:"/news",element:l.jsx(iA,{})}),l.jsx(We,{path:"/admin",element:l.jsx(ON,{})}),l.jsx(We,{path:"/admin/home",element:l.jsx(Cn,{children:l.jsx(TI,{})})}),l.jsx(We,{path:"/admin/addproject",element:l.jsx(Cn,{children:l.jsx(YR,{})})}),l.jsx(We,{path:"/admin/addarticle",element:l.jsx(Cn,{children:l.jsx(lI,{})})}),l.jsx(We,{path:"/admin/addevent",element:l.jsx(Cn,{children:l.jsx(SI,{})})}),l.jsx(We,{path:"/admin/edit-delete-project",element:l.jsx(Cn,{children:l.jsx(RI,{})})}),l.jsx(We,{path:"/admin/edit-project/:id",element:l.jsx(Cn,{children:l.jsx(ZI,{})})}),l.jsx(We,{path:"/admin/edit-delete-event",element:l.jsx(Cn,{children:l.jsx(UI,{})})}),l.jsx(We,{path:"/admin/edit-event/:id",element:l.jsx(Cn,{children:l.jsx(dN,{})})}),l.jsx(We,{path:"/admin/edit-delete-article",element:l.jsx(Cn,{children:l.jsx(GI,{})})}),l.jsx(We,{path:"/admin/edit-article/:id",element:l.jsx(Cn,{children:l.jsx(yN,{})})})]})]})}bc.createRoot(document.getElementById("root")).render(l.jsx(ee.StrictMode,{children:l.jsx(IN,{})}));
+`,Cn=({children:e})=>(console.log("private route",e),localStorage.getItem("accessToken")?e:l.jsx(R_,{to:"/admin/home"}));function UN(){return l.jsxs(z_,{children:[l.jsx(q_,{}),l.jsxs(N_,{children:[l.jsx(We,{path:"/",element:l.jsx(Lk,{})}),l.jsx(We,{path:"/projects",element:l.jsx(Zk,{})}),l.jsx(We,{path:"/projects/:id",element:l.jsx(rT,{})}),l.jsx(We,{path:"/media",element:l.jsx(Hk,{})}),l.jsx(We,{path:"/contact",element:l.jsx(iO,{})}),l.jsx(We,{path:"/cv",element:l.jsx(kO,{})}),l.jsx(We,{path:"/matchbox",element:l.jsx(IO,{})}),l.jsx(We,{path:"/news",element:l.jsx(iA,{})}),l.jsx(We,{path:"/admin",element:l.jsx(DN,{})}),l.jsx(We,{path:"/admin/home",element:l.jsx(Cn,{children:l.jsx(jI,{})})}),l.jsx(We,{path:"/admin/addproject",element:l.jsx(Cn,{children:l.jsx(YR,{})})}),l.jsx(We,{path:"/admin/addarticle",element:l.jsx(Cn,{children:l.jsx(uI,{})})}),l.jsx(We,{path:"/admin/addevent",element:l.jsx(Cn,{children:l.jsx(_I,{})})}),l.jsx(We,{path:"/admin/edit-delete-project",element:l.jsx(Cn,{children:l.jsx(DI,{})})}),l.jsx(We,{path:"/admin/edit-project/:id",element:l.jsx(Cn,{children:l.jsx(nN,{})})}),l.jsx(We,{path:"/admin/edit-delete-event",element:l.jsx(Cn,{children:l.jsx(zI,{})})}),l.jsx(We,{path:"/admin/edit-event/:id",element:l.jsx(Cn,{children:l.jsx(mN,{})})}),l.jsx(We,{path:"/admin/edit-delete-article",element:l.jsx(Cn,{children:l.jsx(YI,{})})}),l.jsx(We,{path:"/admin/edit-article/:id",element:l.jsx(Cn,{children:l.jsx(CN,{})})})]})]})}bc.createRoot(document.getElementById("root")).render(l.jsx(ee.StrictMode,{children:l.jsx(UN,{})}));
