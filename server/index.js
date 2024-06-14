@@ -55,7 +55,7 @@ mongoose
     console.log(err);
   });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`backend server is running on port ${PORT}`);
 });
