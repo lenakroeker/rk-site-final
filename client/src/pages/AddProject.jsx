@@ -97,6 +97,11 @@ export default function NewProduct() {
     }
   };
 
+  const handleRefresh = () => {
+    window.location.reload();
+    window.scrollTo(0, 0);
+  };
+
   return (
     <NewProductC>
       <Link to="/admin/home">&#8678; Back to Admin Home</Link>
@@ -157,9 +162,13 @@ export default function NewProduct() {
         ))}
         <AddProjectButton onClick={handleClick}>Create</AddProjectButton>
         {success && (
-          <p>
-            <strong>Success!</strong> Your project has been created.
-          </p>
+          <>
+            <p>
+              <strong>Success!</strong> Your project has been created
+            </p>
+            <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+            <New onClick={handleRefresh}>Create another project</New>
+          </>
         )}
       </AddProductForm>
     </NewProductC>
@@ -265,4 +274,12 @@ const Progress = styled.progress``;
 const Thumbnail = styled.img`
   width: 200px;
   height: auto;
+`;
+
+const New = styled.div`
+  padding: 10px 30px;
+  background-color: #8afd8a;
+  &:hover {
+    background-color: #26fa26;
+  }
 `;

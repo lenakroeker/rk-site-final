@@ -29,6 +29,9 @@ export default function EditArticle() {
         const res = await publicRequest.get(`/news/find/${id}`);
         setArticle(res.data);
         setInputs(res.data); // Initialize inputs with article data
+        if (res.data.images) {
+          setImageUrls(res.data.images); // Initialize imageUrls with existing images
+        }
       } catch (error) {
         console.error("Error fetching the article:", error);
       }
@@ -183,9 +186,12 @@ export default function EditArticle() {
               Apply Edits
             </AddArticleButton>
             {success && (
-              <p>
-                <strong>Success!</strong> Your article has been edited.
-              </p>
+              <>
+                <p>
+                  <strong>Success!</strong> Your article has been updated
+                </p>
+                <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+              </>
             )}
           </AddArticleForm>
         </NewArticleC>

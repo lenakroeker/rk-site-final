@@ -29,6 +29,9 @@ export default function EditProject() {
         const res = await publicRequest.get(`/projects/find/${id}`);
         setProject(res.data);
         setInputs(res.data); // Initialize inputs with project data
+        if (res.data.images) {
+          setImageUrls(res.data.images); // Initialize imageUrls with existing images
+        }
       } catch (error) {
         console.error("Error fetching the project:", error);
       }
@@ -183,9 +186,12 @@ export default function EditProject() {
               Apply Edits
             </AddProjectButton>
             {success && (
-              <p>
-                <strong>Success!</strong> Your project has been edited.
-              </p>
+              <>
+                <p>
+                  <strong>Success!</strong> Your project has been updated
+                </p>
+                <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+              </>
             )}
           </AddProductForm>
         </NewProductC>

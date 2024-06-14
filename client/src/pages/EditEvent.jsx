@@ -113,9 +113,12 @@ export default function EditEvent() {
               Apply Edits
             </AddProjectButton>
             {success && (
-              <p>
-                <strong>Success!</strong> Your Event has been updated.
-              </p>
+              <>
+                <p>
+                  <strong>Success!</strong> Your event has been updated
+                </p>
+                <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+              </>
             )}
           </AddProductForm>
         </NewProductC>
