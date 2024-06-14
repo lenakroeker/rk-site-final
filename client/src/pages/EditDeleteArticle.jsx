@@ -33,7 +33,7 @@ export default function EditDeletearticle() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setArticle(article.filter((article) => article.id !== id));
+      setArticles(articles.filter((article) => article.id !== id));
     } catch (error) {
       console.error("Error deleting the article:", error);
     }

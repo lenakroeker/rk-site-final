@@ -72,7 +72,7 @@ router.put("/:id", authenticateToken, async (req, res) => {
 // DELETE article by id
 router.delete("/:id", authenticateToken, async (req, res) => {
   try {
-    const deletedArticle = await Project.findByIdAndDelete(req.params.id);
+    const deletedArticle = await News.findByIdAndDelete(req.params.id);
     if (deletedArticle) {
       res.status(200).json({ message: "Article deleted successfully" });
     } else {
