@@ -21,13 +21,29 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
+// app.use((req, res, next) => {
+//   const nonce = crypto.randomBytes(16).toString("base64");
+//   res.setHeader(
+//     "Content-Security-Policy",
+//     `script-src 'self' 'nonce-${nonce}'`
+//   );
+//   res.locals.nonce = nonce;
+//   next();
+// });
+
 app.use((req, res, next) => {
   const nonce = crypto.randomBytes(16).toString("base64");
+
+  // Set Content-Security-Policy header
   res.setHeader(
     "Content-Security-Policy",
     `script-src 'self' 'nonce-${nonce}'`
   );
   res.locals.nonce = nonce;
+
+  // Set Permissions-Policy header with recognized features
+  res.setHeader("Permissions-Policy", "geolocation=(self), microphone=()");
+
   next();
 });
 

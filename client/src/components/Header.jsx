@@ -16,7 +16,7 @@ export default function Header() {
       {(open || window.innerWidth > 600) && (
         <Nav onClick={handleClick}>
           <NavItem end to="/news">
-            news
+            dispatches
           </NavItem>
           <NavItem end to="/projects">
             projects

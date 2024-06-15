@@ -12,9 +12,9 @@ import app from "../firebase";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null));
-  const [files, setFiles] = useState(new Array(4).fill(null));
-  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0));
+  const [imageUrls, setImageUrls] = useState(new Array(6).fill(null));
+  const [files, setFiles] = useState(new Array(6).fill(null));
+  const [uploadProgress, setUploadProgress] = useState(new Array(6).fill(0));
   const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -104,9 +104,18 @@ export default function NewProduct() {
   return (
     <Wrapper>
       <Link to="/admin/home">&#8678; Back to Admin Home</Link>
-      <Title>New Article</Title>
+      <Title>New Dispatch</Title>
       <Form>
         <InputFields>
+          <ItemRadio>
+            <Itemlabel>Post Type (required):</Itemlabel>
+            <Radioinput type="radio" id="news" name="type" value="news" />
+            <Radiolabel for="news">News</Radiolabel>
+            <Radioinput type="radio" id="essay" name="type" value="essay" />
+            <Radiolabel for="essay">Essay</Radiolabel>
+            <Radioinput type="radio" id="blog" name="type" value="blog" />
+            <Radiolabel for="blog">Blog</Radiolabel>
+          </ItemRadio>
           <Item>
             <Itemlabel>Title</Itemlabel>
             <Iteminput
@@ -120,7 +129,7 @@ export default function NewProduct() {
             <Itemlabel>Date</Itemlabel>
             <Iteminput
               name="date"
-              type="text"
+              type="date"
               placeholder="date"
               onChange={handleChange}
             />
@@ -135,7 +144,7 @@ export default function NewProduct() {
             />
           </ItemTextArea>
         </InputFields>
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length: 6 }).map((_, index) => (
           <ItemImage key={index}>
             <Itemlabel>Image {index + 1}</Itemlabel>
             <ItemImageinput
@@ -155,6 +164,15 @@ export default function NewProduct() {
             )}
           </ItemImage>
         ))}
+        <Item>
+          <Itemlabel>Video</Itemlabel>
+          <Iteminput
+            name="video"
+            type="string"
+            placeholder="https://video-url.com"
+            onChange={handleChange}
+          />
+        </Item>
         <Button onClick={handleClick}>Create</Button>
         {success && (
           <>
@@ -198,6 +216,19 @@ const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
+
+const ItemRadio = styled.div`
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  background: #dceef5;
+  padding: 20px 30px;
+  margin: 10px 20%;
+`;
+const Radioinput = styled.input`
+  margin-left: 20px;
+`;
+const Radiolabel = styled.label``;
 
 const ItemTextArea = styled.div`
   width: 90%;
