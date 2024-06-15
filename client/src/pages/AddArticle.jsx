@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import {
   getStorage,
   ref,
@@ -10,18 +9,20 @@ import {
 } from "firebase/storage";
 import app from "../firebase";
 
-export default function NewProduct() {
+export default function NewArticle() {
   const [inputs, setInputs] = useState({});
   const [imageUrls, setImageUrls] = useState(new Array(6).fill(null));
   const [files, setFiles] = useState(new Array(6).fill(null));
   const [uploadProgress, setUploadProgress] = useState(new Array(6).fill(0));
   const [success, setSuccess] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs((prev) => {
-      const newInputs = { ...prev, [name]: value };
-      return newInputs;
-    });
+    setInputs((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(inputs); // Log project object every time it is edited
   };
 
   const handleFileChange = (e, index) => {
@@ -73,7 +74,6 @@ export default function NewProduct() {
   const handleClick = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken");
-
     const project = { ...inputs, images: imageUrls.filter(Boolean) };
     const API_URL = import.meta.env.VITE_API_URL;
 
@@ -109,12 +109,30 @@ export default function NewProduct() {
         <InputFields>
           <ItemRadio>
             <Itemlabel>Post Type (required):</Itemlabel>
-            <Radioinput type="radio" id="news" name="type" value="news" />
-            <Radiolabel for="news">News</Radiolabel>
-            <Radioinput type="radio" id="essay" name="type" value="essay" />
-            <Radiolabel for="essay">Essay</Radiolabel>
-            <Radioinput type="radio" id="blog" name="type" value="blog" />
-            <Radiolabel for="blog">Blog</Radiolabel>
+            <Radioinput
+              type="radio"
+              id="news"
+              name="type"
+              value="news"
+              onChange={handleChange}
+            />
+            <Radiolabel htmlFor="news">News</Radiolabel>
+            <Radioinput
+              type="radio"
+              id="essay"
+              name="type"
+              value="essay"
+              onChange={handleChange}
+            />
+            <Radiolabel htmlFor="essay">Essay</Radiolabel>
+            <Radioinput
+              type="radio"
+              id="blog"
+              name="type"
+              value="blog"
+              onChange={handleChange}
+            />
+            <Radiolabel htmlFor="blog">Blog</Radiolabel>
           </ItemRadio>
           <Item>
             <Itemlabel>Title</Itemlabel>
@@ -234,9 +252,11 @@ const ItemRadio = styled.div`
   padding: 20px 30px;
   margin: 10px 20%;
 `;
+
 const Radioinput = styled.input`
   margin-left: 20px;
 `;
+
 const Radiolabel = styled.label``;
 
 const ItemTextArea = styled.div`
