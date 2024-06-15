@@ -10,7 +10,7 @@ import { publicRequest } from "../../requestMethod.js";
 export default function News() {
   const [page, setPage] = useState(0);
   const [filterData, setFilterData] = useState();
-  const n = 3;
+  const n = 5;
 
   const [news, setNews] = useState([]);
 
