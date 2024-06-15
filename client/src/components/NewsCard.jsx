@@ -75,6 +75,18 @@ export default function NewsCard({ data }) {
               data.images.map((img, index) => <Img src={img} key={index} />)}
           </ImgGrid>
           <URL href={data.url}>{data.url}</URL>
+          {data.video && (
+            <iframe
+              width="560"
+              height="315"
+              src={data.video}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          )}
         </Blog>
       ) : (
         <Essay>
