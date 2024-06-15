@@ -145,7 +145,7 @@ export default function NewProduct() {
           </ItemTextArea>
           <ItemTextArea>
             <Itemlabel>External link URL</Itemlabel>
-            <TextField
+            <Iteminput
               name="url"
               type="url"
               placeholder="http://example.com"
