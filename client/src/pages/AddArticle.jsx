@@ -143,6 +143,15 @@ export default function NewProduct() {
               onChange={handleChange}
             />
           </ItemTextArea>
+          <ItemTextArea>
+            <Itemlabel>External link URL</Itemlabel>
+            <TextField
+              name="url"
+              type="url"
+              placeholder="http://example.com"
+              onChange={handleChange}
+            />
+          </ItemTextArea>
         </InputFields>
         {Array.from({ length: 6 }).map((_, index) => (
           <ItemImage key={index}>
