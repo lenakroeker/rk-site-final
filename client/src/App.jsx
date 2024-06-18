@@ -8,6 +8,7 @@ import Contact from "./pages/Contact.jsx";
 import CV from "./pages/CV.jsx";
 import Matchbox from "./pages/Matchbox.jsx";
 import News from "./pages/News.jsx";
+import MarshallBursary from "./pages/MarshallBursary.jsx";
 import AddProject from "./pages/AddProject.jsx";
 import AddArticle from "./pages/AddArticle.jsx";
 import AddEvent from "./pages/AddEvent.jsx";
@@ -36,6 +37,10 @@ function App() {
         <Route path="/matchbox" element={<Matchbox />} />
         <Route path="/news" element={<News />} />
         <Route path="/admin" element={<Login />} />
+        <Route
+          path="/murdena-and-albert-marshall-bursary"
+          element={<MarshallBursary />}
+        />
         <Route
           path="/admin/home"
           element={

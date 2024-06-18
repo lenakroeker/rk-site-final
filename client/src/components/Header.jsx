@@ -16,22 +16,25 @@ export default function Header() {
       {(open || window.innerWidth > 600) && (
         <Nav onClick={handleClick}>
           <NavItem end to="/news">
-            dispatches
+            Dispatches
           </NavItem>
           <NavItem end to="/projects">
-            projects
+            Projects
           </NavItem>
           <NavItem end to="/media">
-            media
+            Media
           </NavItem>
           <NavItem end to="/cv">
-            cv
+            CV
           </NavItem>
           <NavItem end to="/matchbox">
-            matchbox
+            Matchbox
+          </NavItem>
+          <NavItem end to="/murdena-and-albert-marshall-bursary">
+            Marshall Bursary
           </NavItem>
           <NavItem end to="/contact">
-            contact
+            Contact
           </NavItem>
         </Nav>
       )}
