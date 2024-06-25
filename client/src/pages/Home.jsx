@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 import HomeNewsCard from "../components/HomeNewsCard";
 import HomeEventCard from "../components/HomeEventCard";
 import styled from "styled-components";
-import Kinnistin from "../assets/kinnistin.jpg";
-import Pictou from "../assets/pictou4.jpg";
-import Bell from "../assets/bell.jpg";
+import Main1 from "../assets/main1.jpg";
+import Main2 from "../assets/main2.jpg";
+import Main3 from "../assets/main3.jpg";
+import Main4 from "../assets/main4.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,7 +27,7 @@ export default function Home() {
     getRecentNews();
   }, []);
 
-  const fadeImages = [Kinnistin, Pictou, Bell];
+  const fadeImages = [Main1, Main2, Main3, Main4];
 
   const settings = {
     dots: false,
@@ -82,17 +83,19 @@ const Slide = styled.div`
   width: 100%;
   overflow: hidden;
   @media only screen and (min-width: 500px) {
-    height: 80vh;
+    height: 90vh;
     width: 100%;
   }
 `;
 
 const Img = styled.img`
   height: 100%;
+  margin-left: -60vw;
   @media only screen and (min-width: 500px) {
     object-fit: cover;
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow-x: hidden;
   }
 `;
 
