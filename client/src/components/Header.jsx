@@ -24,7 +24,7 @@ export default function Header() {
           <NavItem end to="/media">
             Media
           </NavItem>
-          <NavItem end to="/news">
+          <NavItem end to="/dispatches">
             Dispatches
           </NavItem>
 

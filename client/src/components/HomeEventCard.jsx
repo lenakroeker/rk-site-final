@@ -74,7 +74,6 @@ const Title = styled.div`
   width: 100%;
   font-size: 20px;
   text-align: center;
-  font-weight: bold;
   @media only screen and (min-width: 500px) {
     margin: 1px 0;
   }

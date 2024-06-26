@@ -8,14 +8,19 @@ import Contact from "./pages/Contact.jsx";
 import CV from "./pages/CV.jsx";
 import Matchbox from "./pages/Matchbox.jsx";
 import News from "./pages/News.jsx";
+import Dispatches from "./pages/Dispatches.jsx";
+import DispatchDetail from "./pages/DispatchDetail.jsx";
 import MarshallBursary from "./pages/MarshallBursary.jsx";
 import AddProject from "./pages/AddProject.jsx";
-import AddArticle from "./pages/AddArticle.jsx";
+import AddNews from "./pages/AddNews.jsx";
+import AddDispatch from "./pages/AddDispatch.jsx";
 import AddEvent from "./pages/AddEvent.jsx";
 import AdminPage from "./pages/Admin.jsx";
 import EditDeleteProject from "./pages/EditDeleteProject.jsx";
 import EditDeleteEvent from "./pages/EditDeleteEvent.jsx";
 import EditDeleteArticle from "./pages/EditDeleteArticle.jsx";
+import EditDeleteDispatch from "./pages/EditDeleteDispatch.jsx";
+import EditDispatch from "./pages/EditDispatch.jsx";
 import EditProject from "./pages/EditProject.jsx";
 import EditEvent from "./pages/EditEvent.jsx";
 import EditArticle from "./pages/EditArticle.jsx";
@@ -35,6 +40,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cv" element={<CV />} />
         <Route path="/matchbox" element={<Matchbox />} />
+        <Route path="/dispatches" element={<Dispatches />} />
+        <Route path="/dispatches/:id" element={<DispatchDetail />} />
         <Route path="/news" element={<News />} />
         <Route path="/admin" element={<Login />} />
         <Route
@@ -58,10 +65,18 @@ function App() {
           }
         />
         <Route
-          path="/admin/addarticle"
+          path="/admin/addnews"
           element={
             <PrivateRoute>
-              <AddArticle />
+              <AddNews />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/adddispatch"
+          element={
+            <PrivateRoute>
+              <AddDispatch />
             </PrivateRoute>
           }
         />
@@ -119,6 +134,22 @@ function App() {
           element={
             <PrivateRoute>
               <EditArticle />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-delete-dispatch"
+          element={
+            <PrivateRoute>
+              <EditDeleteDispatch />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-dispatch/:id"
+          element={
+            <PrivateRoute>
+              <EditDispatch />
             </PrivateRoute>
           }
         />

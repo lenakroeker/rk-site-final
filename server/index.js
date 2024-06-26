@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const newsRoute = require("./routes/news");
-const projectRoute = require("./routes/project");
+const essayRoute = require("./routes/essay");
+const projectRoutes = require("./routes/project");
 const adminRoutes = require("./routes/admin");
 const eventRoutes = require("./routes/event");
 const path = require("path");
@@ -56,9 +57,10 @@ app.use(bodyParser.json());
 
 // API routes
 app.use("/api/news", newsRoute);
-app.use("/api/projects", projectRoute);
+app.use("/api/projects", projectRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/essays", essayRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));

@@ -13,8 +13,11 @@ export default function Admin() {
       <Link to="/admin/addProject">
         <Button>Add Project</Button>
       </Link>
-      <Link to="/admin/addarticle">
+      <Link to="/admin/addnews">
         <Button>Add News Article</Button>
+      </Link>
+      <Link to="/admin/adddispatch">
+        <Button>Add Dispatch</Button>
       </Link>
       <Link to="/admin/addevent">
         <Button>Add Event</Button>
@@ -25,6 +28,9 @@ export default function Admin() {
         </Link>
         <Link to="/admin/edit-delete-article">
           <Button>Edit / Delete News Article</Button>
+        </Link>
+        <Link to="/admin/edit-delete-dispatch">
+          <Button>Edit / Delete Dispatch</Button>
         </Link>
         <Link to="/admin/edit-delete-event">
           <Button>Edit / Delete Event</Button>
