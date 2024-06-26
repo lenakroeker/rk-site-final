@@ -39,7 +39,7 @@ export default function HomeEventCard() {
               </EventLink>
             </Event>
           ))}
-      <Title>Passed Events</Title>
+      {/* <Title>Passed Events</Title>
       {events &&
         events
           .filter((event) => new Date(event.date) < new Date())
@@ -54,19 +54,19 @@ export default function HomeEventCard() {
                 <b>Date:</b> {formatDate(event.date)}
               </EventDate>
             </Event>
-          ))}
+          ))} */}
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   width: 100vw;
-  padding: 60px 5vw;
-
+  padding: 10px 5vw;
+  /* 
   @media only screen and (min-width: 500px) {
     width: 100%;
     padding: 60px 5vw;
-  }
+  } */
 `;
 
 const Title = styled.div`

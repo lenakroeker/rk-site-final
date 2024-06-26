@@ -15,8 +15,8 @@ export default function Header() {
       </NavItem>
       {(open || window.innerWidth > 600) && (
         <Nav onClick={handleClick}>
-          <NavItem end to="/news">
-            Dispatches
+          <NavItem end to="/cv">
+            CV
           </NavItem>
           <NavItem end to="/projects">
             Projects
@@ -24,9 +24,10 @@ export default function Header() {
           <NavItem end to="/media">
             Media
           </NavItem>
-          <NavItem end to="/cv">
-            CV
+          <NavItem end to="/news">
+            Dispatches
           </NavItem>
+
           <NavItem end to="/matchbox">
             Matchbox
           </NavItem>

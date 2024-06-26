@@ -54,6 +54,9 @@ export default function Home() {
           ))}
       </Slider>
       <Info>
+        <Calendar>
+          <HomeEventCard />
+        </Calendar>
         <News>
           <NavItem end to="/news">
             News
@@ -67,9 +70,6 @@ export default function Home() {
             More News
           </NavItem>
         </News>
-        <Calendar>
-          <HomeEventCard />
-        </Calendar>
       </Info>
     </Wrapper>
   );
@@ -103,9 +103,9 @@ const Img = styled.img`
 const Info = styled.div`
   width: 100%;
   display: block;
-  @media only screen and (min-width: 500px) {
+  /* @media only screen and (min-width: 500px) {
     display: flex;
-  }
+  } */
 `;
 
 const Calendar = styled.div`
@@ -118,10 +118,10 @@ const News = styled.div`
   width: 100%;
   padding: 20px 4vw;
   margin-top: -5px;
-  @media only screen and (min-width: 500px) {
+  /* @media only screen and (min-width: 500px) {
     width: 60vw;
     padding: 40px;
-  }
+  } */
 `;
 
 const NavItem = styled(NavLink)`
