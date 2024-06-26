@@ -6,31 +6,31 @@ import styled from "styled-components";
 import DispatchCard from "../components/DispatchCard.jsx";
 import { publicRequest } from "../../requestMethod.js";
 
-export default function Dispatches() {
+export default function Essays() {
   const [page, setPage] = useState(0);
   const [filterData, setFilterData] = useState();
   const n = 5;
-
-  const [dispatches, setDispatches] = useState([]);
+  const [essays, setEssays] = useState([]);
 
   useEffect(() => {
-    const getDispatches = async () => {
+    const getEssays = async () => {
       try {
         const res = await publicRequest.get("essays");
-        setDispatches(res.data.reverse()); // Reversing the data here
-        setDispatches(res.data);
-      } catch {}
+        setEssays(res.data.reverse());
+      } catch (error) {
+        console.error("Error fetching essays:", error);
+      }
     };
-    getDispatches();
+    getEssays();
   }, []);
 
   useEffect(() => {
     setFilterData(
-      dispatches.filter((item, index) => {
+      essays.filter((item, index) => {
         return (index >= page * n) & (index < (page + 1) * n);
       })
     );
-  }, [dispatches, page]);
+  }, [essays, page]);
 
   return (
     <Wrapper>
@@ -38,7 +38,7 @@ export default function Dispatches() {
       <Feed>
         {filterData &&
           filterData.map((item, index) => (
-            <DispatchCard data={item} key={index} />
+            <DispatchCard essay={item} key={index} />
           ))}
       </Feed>
       <ReactPaginate
@@ -46,7 +46,7 @@ export default function Dispatches() {
         pageClassName={"page-item"}
         activeClassName={"active"}
         onPageChange={(event) => setPage(event.selected)}
-        pageCount={Math.ceil(dispatches.length / n)}
+        pageCount={Math.ceil(essays.length / n)}
         breakLabel="..."
         previousLabel={
           <IconContext.Provider value={{ color: "#B8C1CC", size: "30px" }}>

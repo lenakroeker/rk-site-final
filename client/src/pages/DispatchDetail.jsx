@@ -23,6 +23,7 @@ export default function DispatchDetail() {
 
   return (
     <Wrapper>
+      <Title>{id}</Title>
       {essay && (
         <>
           <Title>{essay.title}</Title>

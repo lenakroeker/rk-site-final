@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export default function DispatchCard({ data }) {
+export default function DispatchCard({ essay }) {
   const [dateText, setDateText] = useState("");
 
   useEffect(() => {
-    if (data.date) {
-      const date = new Date(data.date);
+    if (essay.date) {
+      const date = new Date(essay.date);
       const options = { year: "numeric", month: "long", day: "numeric" };
       const formattedDate = date.toLocaleDateString("en-US", options);
 
@@ -16,7 +16,7 @@ export default function DispatchCard({ data }) {
 
       setDateText(formattedDate.replace(day, `${day}${suffix}`));
     }
-  }, [data.date]);
+  }, [essay.date]);
 
   function getOrdinalSuffix(day) {
     if (day > 3 && day < 21) return "th";
@@ -33,9 +33,9 @@ export default function DispatchCard({ data }) {
   }
 
   //   const renderContentWithImages = () => {
-  //     const paragraphs = data.text.split(/\n\s*\n/); // Split text into paragraphs
+  //     const paragraphs = dispatch.text.split(/\n\s*\n/); // Split text into paragraphs
   //     const content = [];
-  //     const images = data.images || [];
+  //     const images = dispatch.images || [];
 
   //     paragraphs.forEach((paragraph, index) => {
   //       content.push(<p key={`paragraph-${index}`}>{paragraph}</p>);
@@ -56,13 +56,13 @@ export default function DispatchCard({ data }) {
 
   return (
     <Wrapper>
-      <Essay>
-        <Nav end to={`/dispatches/${data.data._id}`}>
-          <Title>{data.title}</Title>
+      <Nav end to={`/dispatches/${essay._id}`}>
+        <Essay>
+          <Title>{essay.title}</Title>
           <DateText>{dateText}</DateText>
           {/* <Content>{renderContentWithImages()}</Content> */}
-        </Nav>
-      </Essay>
+        </Essay>
+      </Nav>
     </Wrapper>
   );
 }
@@ -73,19 +73,14 @@ const Wrapper = styled.div`
 `;
 
 const Essay = styled.div`
-  background-color: #c3fdc37e;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
-  margin: 20px 0;
 `;
 
 const Title = styled.h3``;
 
-const DateText = styled.p`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
+const DateText = styled.p``;
 
 const Nav = styled(NavLink)`
   color: black !important;

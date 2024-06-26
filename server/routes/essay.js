@@ -3,12 +3,12 @@ const router = express.Router();
 const Essay = require("../models/Essay");
 const authenticateToken = require("./authenticateToken");
 
-// GET Essay item by ID
+// GET essay by id
 router.get("/find/:id", async (req, res) => {
   try {
-    const Essay = await Essay.findById(req.params.id);
-    if (Essay) {
-      res.status(200).json(Essay);
+    const essay = await Essay.findById(req.params.id);
+    if (essay) {
+      res.status(200).json(essay);
     } else {
       res.status(404).json({ message: "Essay not found" });
     }

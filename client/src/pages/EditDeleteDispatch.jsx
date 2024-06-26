@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { publicRequest } from "../../requestMethod.js";
 import { NavLink } from "react-router-dom";
 
-export default function EditDeleteDispatch() {
+export default function EditDeleteEssay() {
   const [essays, setEssays] = useState([]);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function EditDeleteDispatch() {
           essays.map((item, index) => (
             <EssayCard key={index}>
               <Name>{item.title}</Name>
-              <Edit end to={`/admin/edit-dispatch/${item._id}`}>
+              <Edit end to={`/admin/edit-Essay/${item._id}`}>
                 Edit
               </Edit>
               <Delete onClick={() => deleteEssay(item._id)}>Delete</Delete>
