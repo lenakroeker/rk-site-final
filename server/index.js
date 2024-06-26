@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-const newsRoute = require("./routes/news");
-const essayRoute = require("./routes/essay");
+const newsRoutes = require("./routes/news");
+const essayRoutes = require("./routes/essay");
 const projectRoutes = require("./routes/project");
 const adminRoutes = require("./routes/admin");
 const eventRoutes = require("./routes/event");
@@ -56,7 +56,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // API routes
-app.use("/api/news", newsRoute);
+app.use("/api/news", newsRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/events", eventRoutes);
