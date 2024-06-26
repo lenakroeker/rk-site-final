@@ -34,21 +34,28 @@ export default function HomeNewsCard({ data }) {
     <NewsItem>
       <NewsTitle>{data.title}</NewsTitle>
       <NewsDate>{dateText}</NewsDate>
-      <NewsImages>
-        {data.images &&
-          data.images.map((img, index) => <NewsImg src={img} key={index} />)}
-      </NewsImages>
-      <NewsText>{data.text}</NewsText>
+      <NewsBox>
+        <NewsText>{data.text}</NewsText>
+
+        <NewsImages>
+          {data.images &&
+            data.images.map((img, index) => <NewsImg src={img} key={index} />)}
+        </NewsImages>
+      </NewsBox>
     </NewsItem>
   );
 }
 
 const NewsItem = styled.div`
-  padding: 20px;
+  padding: 20px 20vw;
 `;
 const NewsTitle = styled.h2``;
 
 const NewsDate = styled.p``;
+
+const NewsBox = styled.div`
+  display: flex;
+`;
 
 const NewsImages = styled.div`
   display: flex;
@@ -56,7 +63,7 @@ const NewsImages = styled.div`
 `;
 
 const NewsImg = styled.img`
-  width: 50%;
+  width: 20vw;
 `;
 
 const NewsText = styled.p``;

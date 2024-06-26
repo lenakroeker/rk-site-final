@@ -61,7 +61,7 @@ export default function HomeEventCard() {
 
 const Wrapper = styled.div`
   width: 100vw;
-  padding: 10px 5vw;
+  padding: 10px 2vw;
   /* 
   @media only screen and (min-width: 500px) {
     width: 100%;
@@ -71,13 +71,11 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   width: 100%;
-  font-size: 20px;
+  font-size: 12px;
   text-align: center;
   font-weight: bold;
-  text-decoration: underline;
   @media only screen and (min-width: 500px) {
-    margin: 20px 0;
-    text-align: left;
+    margin: 1px 0;
   }
 `;
 
@@ -85,12 +83,10 @@ const Event = styled.div`
   width: 100%;
   height: auto;
   padding: 3px 3px 5px 20px;
-  margin: 50px 0;
+  margin: 10px 0;
   border-left: 1px solid black;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  background-color: #00000010;
 `;
 
 const EventTitle = styled.div`
@@ -98,18 +94,13 @@ const EventTitle = styled.div`
   font-size: 18px;
   font-weight: bold;
 `;
-const EventLocation = styled.div`
-  width: 45%;
-`;
-const EventDate = styled.div`
-  width: 50%;
-`;
+const EventLocation = styled.div``;
+const EventDate = styled.div``;
 const EventLink = styled.a`
   padding: 3px;
   background: white;
   border-radius: 5px;
   border: 1px solid black;
-  width: 30%;
-  margin: 20px 70% 0px 0px;
+  margin: 20px 20% 0px 0px;
   text-align: center;
 `;
