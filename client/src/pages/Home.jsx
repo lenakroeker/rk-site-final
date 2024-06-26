@@ -127,7 +127,10 @@ const News = styled.div`
 `;
 
 const NavItem = styled(NavLink)`
-  color: #fff;
+  color: black;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
   padding: 15px;
   display: block;
 `;

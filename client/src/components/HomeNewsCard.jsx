@@ -51,7 +51,9 @@ const NewsItem = styled.div`
 `;
 const NewsTitle = styled.h2``;
 
-const NewsDate = styled.p``;
+const NewsDate = styled.p`
+  color: black;
+`;
 
 const NewsBox = styled.div`
   display: flex;

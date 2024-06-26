@@ -22,6 +22,7 @@ export default function HomeEventCard() {
   return (
     <Wrapper>
       <Title>Upcoming Events</Title>
+
       {events &&
         events
           .filter((event) => new Date(event.date) > new Date())
@@ -71,7 +72,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   width: 100%;
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
   @media only screen and (min-width: 500px) {
