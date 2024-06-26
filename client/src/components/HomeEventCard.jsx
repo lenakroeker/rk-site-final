@@ -90,17 +90,23 @@ const Event = styled.div`
 `;
 
 const EventTitle = styled.div`
-  width: 100%;
+  width: 20%;
   font-size: 18px;
   font-weight: bold;
 `;
-const EventLocation = styled.div``;
-const EventDate = styled.div``;
+const EventLocation = styled.div`
+  width: 20%;
+`;
+const EventDate = styled.div`
+  width: 20%;
+`;
 const EventLink = styled.a`
+  width: 20%;
+
   padding: 3px;
   background: white;
   border-radius: 5px;
   border: 1px solid black;
-  margin: 20px 20% 0px 0px;
+  margin: 0px 20% 0px 0px;
   text-align: center;
 `;

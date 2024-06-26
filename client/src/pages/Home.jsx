@@ -109,12 +109,14 @@ const Info = styled.div`
 `;
 
 const Calendar = styled.div`
-  width: 40vw;
+  width: 100%;
+  background-color: black;
+  color: white;
 `;
 
 const News = styled.div`
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   width: 100%;
   padding: 20px 4vw;
   margin-top: -5px;
