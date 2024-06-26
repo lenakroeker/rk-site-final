@@ -3,8 +3,7 @@ import ReactPaginate from "react-paginate";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
-import NewsCard from "../components/NewsCard.jsx";
-import PlaceholderImg from "../assets/assemblythumb.jpg";
+import DispatchCard from "../components/DispatchCard.jsx";
 import { publicRequest } from "../../requestMethod.js";
 
 export default function Dispatches() {
@@ -38,7 +37,9 @@ export default function Dispatches() {
       <Title>Dispatches</Title>
       <Feed>
         {filterData &&
-          filterData.map((item, index) => <NewsCard data={item} key={index} />)}
+          filterData.map((item, index) => (
+            <DispatchCard data={item} key={index} />
+          ))}
       </Feed>
       <ReactPaginate
         containerClassName={"pagination"}
