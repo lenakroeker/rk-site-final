@@ -35,9 +35,13 @@ export default function HomeEventCard() {
                 <EventDate>
                   <b>Date:</b> {formatDate(event.date)}
                 </EventDate>
-                <EventLink href={event.link} target="_blank">
-                  More Info
-                </EventLink>
+                {event.link ? (
+                  <EventLink href={event.link} target="_blank">
+                    More Info
+                  </EventLink>
+                ) : (
+                  <NoEventLink></NoEventLink>
+                )}
               </Event>
             ))}
         </Wrapper>
@@ -48,12 +52,7 @@ export default function HomeEventCard() {
 
 const Wrapper = styled.div`
   width: 100vw;
-  padding: 10px 2vw;
-  /* 
-  @media only screen and (min-width: 500px) {
-    width: 100%;
-    padding: 60px 5vw;
-  } */
+  padding: 10px 10vw;
 `;
 
 const Title = styled.div`
@@ -61,38 +60,30 @@ const Title = styled.div`
   font-size: 20px;
   text-align: center;
   @media only screen and (min-width: 500px) {
-    margin: 1px 0;
+    margin: 10px 0;
   }
 `;
 
 const Event = styled.div`
-  width: 100%;
-  height: auto;
-  padding: 3px 3px 5px 20px;
-  margin: 10px 0;
-  border-left: 1px solid black;
-  position: relative;
   display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
 `;
 
 const EventTitle = styled.div`
-  width: 20%;
-  font-size: 18px;
   font-weight: bold;
 `;
-const EventLocation = styled.div`
-  width: 20%;
-`;
-const EventDate = styled.div`
-  width: 20%;
-`;
+const EventLocation = styled.div``;
+const EventDate = styled.div``;
 const EventLink = styled.a`
-  width: 20%;
-
-  padding: 3px;
+  padding: 3px 10px;
   background: white;
   border-radius: 5px;
   border: 1px solid black;
-  margin: 0px 20% 0px 0px;
   text-align: center;
+`;
+
+const NoEventLink = styled.a`
+  background: transparent;
+  width: 200px;
 `;

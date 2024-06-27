@@ -25,7 +25,7 @@ export default function DispatchDetail() {
   return (
     <Wrapper>
       {essay && (
-        <>
+        <Page>
           <Title>{essay.title}</Title>
           <Day>{dateModify(essay.date)}</Day>
           <Text>{essay.text}</Text>
@@ -34,16 +34,19 @@ export default function DispatchDetail() {
               essay.images.map((image, index) => {
                 if (index > 0) {
                   return (
-                    <Img
-                      src={image}
-                      key={index}
-                      onClick={() => openModal(image)}
-                    />
+                    <ImgDiv>
+                      <ImgNum>{index}</ImgNum>
+                      <Img
+                        src={image}
+                        key={index}
+                        onClick={() => openModal(image)}
+                      />
+                    </ImgDiv>
                   );
                 }
               })}
           </ImgWrapper>
-        </>
+        </Page>
       )}
     </Wrapper>
   );
@@ -53,17 +56,21 @@ const Wrapper = styled.div`
   min-height: 80vh;
   padding: 100px 12vw;
   width: 100vw;
-  text-align: center;
   @media only screen and (min-width: 500px) {
     padding: 100px 0;
   }
 `;
 
-const Title = styled.h2`
-  text-align: center;
+const Page = styled.div`
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: left;
 `;
+
+const Title = styled.h2``;
 const Day = styled.h3`
   font-size: 16px;
+  font-weight: 400;
 `;
 
 const ImgWrapper = styled.div`
@@ -77,6 +84,8 @@ const ImgWrapper = styled.div`
   }
 `;
 
+const ImgDiv = styled.div``;
+
 const Img = styled.img`
   max-width: 100vw;
 
@@ -89,7 +98,15 @@ const Img = styled.img`
   }
 `;
 
-const Text = styled.p`
-  max-width: 800px;
-  margin: auto;
+const ImgNum = styled.div`
+  position: absolute;
+  background: black;
+  color: white;
+  width: 20px;
+  padding: 0.1em;
+  text-align: center;
+`;
+
+const Text = styled.div`
+  margin-top: 50px;
 `;

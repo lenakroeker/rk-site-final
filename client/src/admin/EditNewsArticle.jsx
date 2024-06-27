@@ -143,7 +143,7 @@ export default function EditNewsArticle() {
                 <Itemlabel>Date</Itemlabel>
                 <Iteminput
                   name="date"
-                  type="text"
+                  type="date"
                   defaultValue={article.date}
                   onChange={handleChange}
                 />

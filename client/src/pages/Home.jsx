@@ -95,7 +95,6 @@ const Img = styled.img`
     margin-left: 0;
     object-fit: cover;
     width: 100%;
-    height: 100%;
     overflow-x: hidden;
   }
 `;
@@ -103,15 +102,13 @@ const Img = styled.img`
 const Info = styled.div`
   width: 100%;
   display: block;
-  /* @media only screen and (min-width: 500px) {
-    display: flex;
-  } */
 `;
 
 const Calendar = styled.div`
   width: 100%;
   background-color: black;
   color: white;
+  margin-top: -10px;
 `;
 
 const News = styled.div`
@@ -119,11 +116,6 @@ const News = styled.div`
   color: black;
   width: 100%;
   padding: 20px 4vw;
-  margin-top: -5px;
-  /* @media only screen and (min-width: 500px) {
-    width: 60vw;
-    padding: 40px;
-  } */
 `;
 
 const NavItem = styled(NavLink)`
@@ -133,4 +125,5 @@ const NavItem = styled(NavLink)`
   text-align: center;
   padding: 15px;
   display: block;
+  margin: 20px 0;
 `;

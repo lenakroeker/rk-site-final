@@ -69,7 +69,7 @@ const Head = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 10vw;
+  padding: 0 4vw;
   background-color: #000;
   z-index: 100;
 `;
