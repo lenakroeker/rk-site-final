@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { publicRequest } from "../../requestMethod.js";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function EditDeleteEssay() {
   const [essays, setEssays] = useState([]);
@@ -39,13 +39,15 @@ export default function EditDeleteEssay() {
   return (
     <Wrapper>
       <NavLink to="/admin/home">&#8678; Back to Admin Home</NavLink>
-
+      <Link to="/admin/adddispatch">
+        <Button>Add Dispatch</Button>
+      </Link>
       <EssayGrid>
         {essays &&
           essays.map((item, index) => (
             <EssayCard key={index}>
               <Name>{item.title}</Name>
-              <Edit end to={`/admin/edit-Essay/${item._id}`}>
+              <Edit end to={`/admin/edit-dispatch/${item._id}`}>
                 Edit
               </Edit>
               <Delete onClick={() => deleteEssay(item._id)}>Delete</Delete>
@@ -89,4 +91,17 @@ const Edit = styled(NavLink)`
 const Delete = styled.button`
   width: 100px;
   background: #fc9797;
+`;
+
+const Button = styled.button`
+  margin: 10px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #98fbfe;
+  &:hover {
+    background-color: #5ef2f7;
+  }
+  &:active {
+    background-color: #8efbbf;
+  }
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { publicRequest } from "../../requestMethod.js";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function EditDeletearticle() {
   const [articles, setArticles] = useState([]);
@@ -39,7 +39,9 @@ export default function EditDeletearticle() {
   return (
     <Wrapper>
       <NavLink to="/admin/home">&#8678; Back to Admin Home</NavLink>
-
+      <Link to="/admin/addnews">
+        <Button>Add News Article</Button>
+      </Link>
       <ArticleGrid>
         {articles &&
           articles.map((item, index) => (
@@ -89,4 +91,17 @@ const Edit = styled(NavLink)`
 const Delete = styled.button`
   width: 100px;
   background: #fc9797;
+`;
+
+const Button = styled.button`
+  margin: 10px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #98fbfe;
+  &:hover {
+    background-color: #5ef2f7;
+  }
+  &:active {
+    background-color: #8efbbf;
+  }
 `;

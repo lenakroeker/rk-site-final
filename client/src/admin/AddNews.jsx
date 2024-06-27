@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useLocation, Link } from "react-router-dom";
-import { publicRequest } from "../../requestMethod.js";
-
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getStorage,
   ref,
@@ -11,36 +9,13 @@ import {
 } from "firebase/storage";
 import app from "../firebase";
 
-export default function EditDispatch() {
+export default function NewArticle() {
   const [inputs, setInputs] = useState({});
-  const [imageUrls, setImageUrls] = useState(new Array(10).fill(null));
-  const [files, setFiles] = useState(new Array(10).fill(null));
-  const [uploadProgress, setUploadProgress] = useState(new Array(10).fill(0));
+  const [imageUrls, setImageUrls] = useState(new Array(6).fill(null));
+  const [files, setFiles] = useState(new Array(6).fill(null));
+  const [uploadProgress, setUploadProgress] = useState(new Array(6).fill(0));
   const [success, setSuccess] = useState(false);
 
-  const location = useLocation();
-  const [essay, setEssay] = useState(null);
-  const id = location.pathname.split("/")[3];
-
-  // Get Essay data
-  useEffect(() => {
-    const getEssayById = async () => {
-      try {
-        const res = await publicRequest.get(`/essays/find/${id}`);
-        setEssay(res.data);
-        setInputs(res.data);
-        if (res.data.images) {
-          setImageUrls(res.data.images);
-        }
-      } catch (error) {
-        console.error("Error fetching the Essay:", error);
-      }
-    };
-
-    getEssayById();
-  }, [id]);
-
-  // Update inputs on change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs((prev) => ({
@@ -49,7 +24,6 @@ export default function EditDispatch() {
     }));
   };
 
-  // Upload images to Firebase and get URLs
   const handleFileChange = (e, index) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -99,102 +73,104 @@ export default function EditDispatch() {
   const handleClick = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken");
-
-    const Essay = { ...inputs, images: imageUrls.filter(Boolean) };
+    const project = { ...inputs, images: imageUrls.filter(Boolean) };
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {
-      const response = await fetch(`${API_URL}/essays/${id}`, {
-        method: "PUT",
+      const response = await fetch(`${API_URL}/news`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(essay),
+        body: JSON.stringify(project),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      const data = await response.json();
       setSuccess(true);
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
-  return (
-    <>
-      {Essay && (
-        <Wrapper>
-          <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+  const handleRefresh = () => {
+    window.location.reload();
+    window.scrollTo(0, 0);
+  };
 
-          <Title>Edit {essay.title}</Title>
-          <Form>
-            <InputFields>
-              <Item>
-                <Itemlabel>Title</Itemlabel>
-                <Iteminput
-                  name="title"
-                  type="text"
-                  defaultValue={essay.title}
-                  onChange={handleChange}
-                />
-              </Item>
-              <Item>
-                <Itemlabel>Date</Itemlabel>
-                <Iteminput
-                  name="date"
-                  type="text"
-                  defaultValue={essay.date}
-                  onChange={handleChange}
-                />
-              </Item>
-              <ItemTextArea>
-                <Itemlabel>Text</Itemlabel>
-                <TextField
-                  name="text"
-                  type="textfield"
-                  defaultValue={essay.text}
-                  onChange={handleChange}
-                />
-              </ItemTextArea>
-            </InputFields>
-            {Array.from({ length: 10 }).map((_, index) => (
-              <ItemImage key={index}>
-                {index === 0 ? (
-                  <Itemlabel>Thumbnail</Itemlabel>
-                ) : (
-                  <Itemlabel>Image {index}</Itemlabel>
-                )}
-                <ItemImageinput
-                  type="file"
-                  onChange={(e) => handleFileChange(e, index)}
-                />
-                {uploadProgress[index] > 0 && uploadProgress[index] < 100 && (
-                  <Progress value={uploadProgress[index]} max="100">
-                    {uploadProgress[index]}%
-                  </Progress>
-                )}
-                {imageUrls[index] && (
-                  <Thumbnail
-                    src={imageUrls[index]}
-                    alt={`Thumbnail ${index + 1}`}
-                  />
-                )}
-              </ItemImage>
-            ))}
-            <Button onClick={handleClick}>Apply Edits</Button>
-            {success && (
-              <>
-                <p>
-                  <strong>Success!</strong> Your Essay has been updated
-                </p>
-                <Back to="/admin/home">&#8678; Back to Admin Home</Back>
-              </>
+  return (
+    <Wrapper>
+      <Link to="/admin/home">&#8678; Back to Admin Home</Link>
+      <Title>New News Article</Title>
+      <Form>
+        <InputFields>
+          <Item>
+            <Itemlabel>Title</Itemlabel>
+            <Iteminput
+              name="title"
+              type="text"
+              placeholder="title"
+              onChange={handleChange}
+            />
+          </Item>
+          <Item>
+            <Itemlabel>Date</Itemlabel>
+            <Iteminput
+              name="date"
+              type="date"
+              placeholder="date"
+              onChange={handleChange}
+            />
+          </Item>
+          <ItemTextArea>
+            <Itemlabel>Text</Itemlabel>
+            <TextField
+              name="text"
+              type="textfield"
+              placeholder="text"
+              onChange={handleChange}
+            />
+          </ItemTextArea>
+          <ItemTextArea>
+            <Itemlabel>External link URL</Itemlabel>
+            <Iteminput
+              name="url"
+              type="url"
+              placeholder="http://example.com"
+              onChange={handleChange}
+            />
+          </ItemTextArea>
+        </InputFields>
+        {Array.from({ length: 6 }).map((_, index) => (
+          <ItemImage key={index}>
+            <Itemlabel>Image {index + 1}</Itemlabel>
+            <ItemImageinput
+              type="file"
+              onChange={(e) => handleFileChange(e, index)}
+            />
+            {uploadProgress[index] > 0 && uploadProgress[index] < 100 && (
+              <Progress value={uploadProgress[index]} max="100">
+                {uploadProgress[index]}%
+              </Progress>
             )}
-          </Form>
-        </Wrapper>
-      )}
-    </>
+          </ItemImage>
+        ))}
+
+        <Button onClick={handleClick}>Create</Button>
+        {success && (
+          <>
+            <p>
+              <strong>Success!</strong> Your article has been created
+            </p>
+            <New onClick={handleRefresh}>Create another article</New>
+
+            <Back to="/admin/home">&#8678; Back to Admin Home</Back>
+          </>
+        )}
+      </Form>
+    </Wrapper>
   );
 }
 
@@ -226,6 +202,21 @@ const Item = styled.div`
   width: 40%;
   margin: 10px;
 `;
+
+const ItemRadio = styled.div`
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  background: #dceef5;
+  padding: 20px 30px;
+  margin: 10px 20%;
+`;
+
+const Radioinput = styled.input`
+  margin-left: 20px;
+`;
+
+const Radiolabel = styled.label``;
 
 const ItemTextArea = styled.div`
   width: 90%;
@@ -265,9 +256,8 @@ const ItemImageinput = styled.input`
 const TextField = styled.textarea`
   margin: 10px auto 30px auto;
   padding: 10px;
-  height: 12em;
+  height: 8em;
   width: 100%;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   border-radius: 10px;
   border: 2px solid black;
   &:focus {
@@ -305,4 +295,18 @@ const Back = styled(Link)`
   text-align: center;
   margin: 20px 30%;
   width: 100%;
+`;
+
+const New = styled.div`
+  padding: 10px 30px;
+  background-color: #00ffc3;
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: 0.5s ease;
+  font-weight: bold;
+  &:hover {
+    background-color: #88ff00;
+    border-radius: 10px;
+  }
 `;

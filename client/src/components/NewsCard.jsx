@@ -1,41 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import dateModify from "../methods/dateModify";
 
 export default function NewsCard({ data }) {
-  const [dateText, setDateText] = useState("");
-
-  useEffect(() => {
-    if (data.date) {
-      const date = new Date(data.date);
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      const formattedDate = date.toLocaleDateString("en-US", options);
-
-      const day = date.getDate();
-      const suffix = getOrdinalSuffix(day);
-
-      setDateText(formattedDate.replace(day, `${day}${suffix}`));
-    }
-  }, [data.date]);
-
-  function getOrdinalSuffix(day) {
-    if (day > 3 && day < 21) return "th";
-    switch (day % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
-    }
-  }
-
   return (
     <Wrapper>
       <News>
         <Title>{data.title}</Title>
-        <DateText>{dateText}</DateText>
+        <DateText>{dateModify(data.date)}</DateText>
         <Text>{data.text}</Text>
         <ImgGrid>
           {data.images &&

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../../requestMethod.js";
+import dateModify from "../methods/dateModify";
 
 export default function DispatchDetail() {
   const location = useLocation();
@@ -23,11 +24,10 @@ export default function DispatchDetail() {
 
   return (
     <Wrapper>
-      <Title>{id}</Title>
       {essay && (
         <>
           <Title>{essay.title}</Title>
-          <Location>{essay.date}</Location>
+          <Day>{dateModify(essay.date)}</Day>
           <Text>{essay.text}</Text>
           <ImgWrapper>
             {essay.images &&
@@ -62,8 +62,8 @@ const Wrapper = styled.div`
 const Title = styled.h2`
   text-align: center;
 `;
-const Location = styled.h3`
-  font-weight: bold;
+const Day = styled.h3`
+  font-size: 16px;
 `;
 
 const ImgWrapper = styled.div`

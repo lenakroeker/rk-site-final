@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { publicRequest } from "../../requestMethod.js";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function EditDeleteEvent() {
   const [events, setEvents] = useState([]);
@@ -39,7 +39,9 @@ export default function EditDeleteEvent() {
   return (
     <Wrapper>
       <NavLink to="/admin/home">&#8678; Back to Admin Home</NavLink>
-
+      <Link to="/admin/addevent">
+        <Button>Add Event</Button>
+      </Link>
       <EventGrid>
         {events &&
           events.map((item) => (
@@ -93,4 +95,17 @@ const Delete = styled.button`
   background: #fc9797;
   border: none;
   cursor: pointer;
+`;
+
+const Button = styled.button`
+  margin: 10px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #98fbfe;
+  &:hover {
+    background-color: #5ef2f7;
+  }
+  &:active {
+    background-color: #8efbbf;
+  }
 `;

@@ -4,7 +4,6 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 import NewsCard from "../components/NewsCard.jsx";
-import PlaceholderImg from "../assets/assemblythumb.jpg";
 import { publicRequest } from "../../requestMethod.js";
 
 export default function News() {

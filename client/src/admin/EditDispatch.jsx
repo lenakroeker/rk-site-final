@@ -9,9 +9,9 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import app from "../firebase";
+import app from "../firebase.js";
 
-export default function EditArticle() {
+export default function EditDispatch() {
   const [inputs, setInputs] = useState({});
   const [imageUrls, setImageUrls] = useState(new Array(10).fill(null));
   const [files, setFiles] = useState(new Array(10).fill(null));
@@ -19,25 +19,25 @@ export default function EditArticle() {
   const [success, setSuccess] = useState(false);
 
   const location = useLocation();
-  const [article, setArticle] = useState(null);
+  const [essay, setEssay] = useState(null);
   const id = location.pathname.split("/")[3];
 
-  // Get article data
+  // Get Essay data
   useEffect(() => {
-    const getArticleById = async () => {
+    const getEssayById = async () => {
       try {
-        const res = await publicRequest.get(`/news/find/${id}`);
-        setArticle(res.data);
+        const res = await publicRequest.get(`/essays/find/${id}`);
+        setEssay(res.data);
         setInputs(res.data);
         if (res.data.images) {
           setImageUrls(res.data.images);
         }
       } catch (error) {
-        console.error("Error fetching the article:", error);
+        console.error("Error fetching the Essay:", error);
       }
     };
 
-    getArticleById();
+    getEssayById();
   }, [id]);
 
   // Update inputs on change
@@ -100,17 +100,17 @@ export default function EditArticle() {
     e.preventDefault();
     const token = localStorage.getItem("accessToken");
 
-    const article = { ...inputs, images: imageUrls.filter(Boolean) };
+    const newEssay = { ...inputs, images: imageUrls.filter(Boolean) };
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {
-      const response = await fetch(`${API_URL}/news/${id}`, {
+      const response = await fetch(`${API_URL}/essays/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(article),
+        body: JSON.stringify(newEssay),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -123,11 +123,11 @@ export default function EditArticle() {
 
   return (
     <>
-      {article && (
+      {essay && (
         <Wrapper>
           <Link to="/admin/home">&#8678; Back to Admin Home</Link>
 
-          <Title>Edit {article.title}</Title>
+          <Title>Edit {essay.title}</Title>
           <Form>
             <InputFields>
               <Item>
@@ -135,7 +135,7 @@ export default function EditArticle() {
                 <Iteminput
                   name="title"
                   type="text"
-                  defaultValue={article.title}
+                  defaultValue={essay.title}
                   onChange={handleChange}
                 />
               </Item>
@@ -144,7 +144,7 @@ export default function EditArticle() {
                 <Iteminput
                   name="date"
                   type="text"
-                  defaultValue={article.date}
+                  defaultValue={essay.date}
                   onChange={handleChange}
                 />
               </Item>
@@ -153,18 +153,14 @@ export default function EditArticle() {
                 <TextField
                   name="text"
                   type="textfield"
-                  defaultValue={article.text}
+                  defaultValue={essay.text}
                   onChange={handleChange}
                 />
               </ItemTextArea>
             </InputFields>
             {Array.from({ length: 10 }).map((_, index) => (
               <ItemImage key={index}>
-                {index === 0 ? (
-                  <Itemlabel>Thumbnail</Itemlabel>
-                ) : (
-                  <Itemlabel>Image {index}</Itemlabel>
-                )}
+                <Itemlabel>Image {index + 1}</Itemlabel>
                 <ItemImageinput
                   type="file"
                   onChange={(e) => handleFileChange(e, index)}
@@ -174,19 +170,13 @@ export default function EditArticle() {
                     {uploadProgress[index]}%
                   </Progress>
                 )}
-                {imageUrls[index] && (
-                  <Thumbnail
-                    src={imageUrls[index]}
-                    alt={`Thumbnail ${index + 1}`}
-                  />
-                )}
               </ItemImage>
             ))}
             <Button onClick={handleClick}>Apply Edits</Button>
             {success && (
               <>
                 <p>
-                  <strong>Success!</strong> Your article has been updated
+                  <strong>Success!</strong> Your Essay has been updated
                 </p>
                 <Back to="/admin/home">&#8678; Back to Admin Home</Back>
               </>

@@ -10,30 +10,19 @@ export default function Admin() {
   return (
     <Wrapper>
       <H1>Welcome Admin!</H1>
-      <Link to="/admin/addProject">
-        <Button>Add Project</Button>
-      </Link>
-      <Link to="/admin/addnews">
-        <Button>Add News Article</Button>
-      </Link>
-      <Link to="/admin/adddispatch">
-        <Button>Add Dispatch</Button>
-      </Link>
-      <Link to="/admin/addevent">
-        <Button>Add Event</Button>
-      </Link>
+
       <Div>
         <Link to="/admin/edit-delete-project">
-          <Button>Edit / Delete Project</Button>
+          <Button>Projects</Button>
         </Link>
         <Link to="/admin/edit-delete-article">
-          <Button>Edit / Delete News Article</Button>
+          <Button>News</Button>
         </Link>
         <Link to="/admin/edit-delete-dispatch">
-          <Button>Edit / Delete Dispatch</Button>
+          <Button>Dispatches</Button>
         </Link>
         <Link to="/admin/edit-delete-event">
-          <Button>Edit / Delete Event</Button>
+          <Button>Events</Button>
         </Link>
       </Div>
       <Button onClick={logout}>Logout</Button>

@@ -11,19 +11,19 @@ import News from "./pages/News.jsx";
 import Dispatches from "./pages/Dispatches.jsx";
 import DispatchDetail from "./pages/DispatchDetail.jsx";
 import MarshallBursary from "./pages/MarshallBursary.jsx";
-import AddProject from "./pages/AddProject.jsx";
-import AddNews from "./pages/AddNews.jsx";
-import AddDispatch from "./pages/AddDispatch.jsx";
-import AddEvent from "./pages/AddEvent.jsx";
-import AdminPage from "./pages/Admin.jsx";
-import EditDeleteProject from "./pages/EditDeleteProject.jsx";
-import EditDeleteEvent from "./pages/EditDeleteEvent.jsx";
-import EditDeleteArticle from "./pages/EditDeleteArticle.jsx";
-import EditDeleteDispatch from "./pages/EditDeleteDispatch.jsx";
-import EditDispatch from "./pages/EditDispatch.jsx";
+import AddProject from "./admin/AddProject.jsx";
+import AddNews from "./admin/AddNews.jsx";
+import AddDispatch from "./admin/AddDispatch.jsx";
+import AddEvent from "./admin/AddEvent.jsx";
+import AdminPage from "./admin/Admin.jsx";
+import EditDeleteProject from "./admin/EditDeleteProject.jsx";
+import EditDeleteEvent from "./admin/EditDeleteEvent.jsx";
+import EditDeleteArticle from "./admin/EditDeleteArticle.jsx";
+import EditDeleteDispatch from "./admin/EditDeleteDispatch.jsx";
+import EditDispatch from "./admin/EditDispatch.jsx";
 import EditProject from "./pages/EditProject.jsx";
-import EditEvent from "./pages/EditEvent.jsx";
-import EditArticle from "./pages/EditArticle.jsx";
+import EditEvent from "./admin/EditEvent.jsx";
+import EditNewsArticle from "./admin/EditNewsArticle.jsx";
 import Login from "./pages/Login.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -133,7 +133,7 @@ function App() {
           path="/admin/edit-article/:id"
           element={
             <PrivateRoute>
-              <EditArticle />
+              <EditNewsArticle />
             </PrivateRoute>
           }
         />
